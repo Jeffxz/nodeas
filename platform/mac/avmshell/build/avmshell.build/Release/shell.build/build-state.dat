@@ -1,0 +1,15 @@
+Tshell
+v7
+r0
+t354354803.546497
+cCheck dependencies
+
+N/Users/user/zhengxu/03_workspace/nodeas/tamarin-central/platform/mac/avmshell/build/Release/shell
+c00000000000000000000000000000000
+t2
+s0
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies354354903#354354903#0(65"[BEROR]error: There is no SDK with the name or path 'macosx10.4'1(4@57"error: There is no SDK with the name or path 'macosx10.4'354354903#18446744073709551615#0#0(1@0"0(0#1#0"8614709664#0"0#
+

@@ -41,126 +41,129 @@
 
 namespace avmshell
 {
-	// this class exists solely to test native classes that use MI.
-	class MIClass : public ClassClosure
-	{
-	public:
-		MIClass(VTable* cvtable) : ClassClosure(cvtable) {}
-		~MIClass() {}
-		
-		DECLARE_SLOTS_MIClass;
-	};
+  // this class exists solely to test native classes that use MI.
+  class MIClass : public ClassClosure
+  {
+  public:
+    MIClass(VTable* cvtable) : ClassClosure(cvtable) {}
+    ~MIClass() {}
+    
+    DECLARE_SLOTS_MIClass;
+  };
 
-	// this class exists solely to test native classes that use MI.
-	class MixinClassThatDoesNotDescendFromScriptObject
-	{
-	public:
-		const double factor;
-		MixinClassThatDoesNotDescendFromScriptObject(double f) : factor(f) {}
-		// evil, wrong version that we DO NOT WANT
-		double plus(double v) { return v * factor; }
-	};
-	
-	// this class exists solely to test native classes that use MI.
-	class MIObjectImpl : public ScriptObject
-	{
-	public:
-		const double amount;
-		MIObjectImpl(VTable* vtable, ScriptObject* prototype, double a) : ScriptObject(vtable, prototype), amount(a) {}
-		double plus(double v) { return v + amount; }
-	};
+  // this class exists solely to test native classes that use MI.
+  class MixinClassThatDoesNotDescendFromScriptObject
+  {
+  public:
+    const double factor;
+    MixinClassThatDoesNotDescendFromScriptObject(double f) : factor(f) {}
+    // evil, wrong version that we DO NOT WANT
+    double plus(double v) { return v * factor; }
+  };
+  
+  // this class exists solely to test native classes that use MI.
+  class MIObjectImpl : public ScriptObject
+  {
+  public:
+    const double amount;
+    MIObjectImpl(VTable* vtable, ScriptObject* prototype, double a) : ScriptObject(vtable, prototype), amount(a) {}
+    double plus(double v) { return v + amount; }
+  };
 
-	// this class exists solely to test native classes that use MI.
-	class MIObject : public MIObjectImpl, public MixinClassThatDoesNotDescendFromScriptObject
-	{
-	public:
-		MIObject(VTable* vtable, ScriptObject* prototype) : MIObjectImpl(vtable, prototype, 1), MixinClassThatDoesNotDescendFromScriptObject(2) {}
-		~MIObject() {}
-		
-		DECLARE_SLOTS_MIObject;
-	};
+  // this class exists solely to test native classes that use MI.
+  class MIObject : public MIObjectImpl, public MixinClassThatDoesNotDescendFromScriptObject
+  {
+  public:
+    MIObject(VTable* vtable, ScriptObject* prototype) : MIObjectImpl(vtable, prototype, 1), MixinClassThatDoesNotDescendFromScriptObject(2) {}
+    ~MIObject() {}
+    
+    DECLARE_SLOTS_MIObject;
+  };
 
-	/**
-	 * A simple class that has some native methods.
-	 * Included as an example for writers of native methods,
-	 * and also to provide some useful QA instrumentation.
-	 */
-	class SystemClass : public ClassClosure
-	{
-		uint64_t initialTime;
+  /**
+   * A simple class that has some native methods.
+   * Included as an example for writers of native methods,
+   * and also to provide some useful QA instrumentation.
+   */
+  class SystemClass : public ClassClosure
+  {
+    uint64_t initialTime;
  
-	public:
-		SystemClass(VTable* cvtable);
-		~SystemClass();
+  public:
+    SystemClass(VTable* cvtable);
+    ~SystemClass();
 
-		// set by shell
-		static int user_argc;
-		static char **user_argv;
+    // set by shell
+    static int user_argc;
+    static char **user_argv;
 
-		/**
-		 * Implementation of System.exit
-		 * AS usage: System.exit(status);
-		 * Exits the VM with OS exit code specified by  status.
-		 */
-		void exit(int status);
+    /**
+     * Implementation of System.exit
+     * AS usage: System.exit(status);
+     * Exits the VM with OS exit code specified by  status.
+     */
+    void exit(int status);
 
-		/**
-		 * Implementation of System.getAvmplusVersion
-		 * AS usage: System.getAvmplusVersion();
-		 * Returns the current version of AVM+ in the form
-		 * "1.0 d100"
-		 */
-		Stringp getAvmplusVersion();
+    /**
+     * Implementation of System.getAvmplusVersion
+     * AS usage: System.getAvmplusVersion();
+     * Returns the current version of AVM+ in the form
+     * "1.0 d100"
+     */
+    Stringp getAvmplusVersion();
 
-		/**
-		 * Implementation of System.exec
-		 * AS usage: exitCode = System.exec("command");
-		 * Executes the specified command line and returns
-		 * the status code
-		 */
-		int exec(Stringp command);
+    /**
+     * Implementation of System.exec
+     * AS usage: exitCode = System.exec("command");
+     * Executes the specified command line and returns
+     * the status code
+     */
+    int exec(Stringp command);
 
-		void trace(ArrayObject* a);
-		void write(Stringp s);
+    void trace(ArrayObject* a);
+    void write(Stringp s);
 
-		
-		/**
-		 * @name Debugging Extensions
-		 */
-		/*@{*/
-		void debugger();
-		bool isDebugger();
-		/*@}*/
+    
+    /**
+     * @name Debugging Extensions
+     */
+    /*@{*/
+    void debugger();
+    bool isDebugger();
+    /*@}*/
 
-				/**
-		 * @name ActionScript Extensions
-		 * ActionScript extensions to ECMAScript
-		 */
-		/*@{*/		
-		unsigned getTimer();
-		/*@}*/
+        /**
+     * @name ActionScript Extensions
+     * ActionScript extensions to ECMAScript
+     */
+    /*@{*/    
+    unsigned getTimer();
+    /*@}*/
 
-		ArrayObject * getArgv();
+    ArrayObject * getArgv();
 
-		Stringp readLine();
+    Stringp readLine();
 
-		double get_totalMemory();
-		double get_freeMemory();
-		double get_privateMemory();
+    double get_totalMemory();
+    double get_freeMemory();
+    double get_privateMemory();
 
-		// Initiate a garbage collection; future versions will not return before completed.
-		void forceFullCollection();
+    // Initiate a garbage collection; future versions will not return before completed.
+    void forceFullCollection();
 
-		// Queue a garbage collection request.
-		void queueCollection();
+    // Queue a garbage collection request.
+    void queueCollection();
 
-		// function exists solely to test native-methods with custom namespaces
-		void ns_example_nstest() { }
+    // function exists solely to test native-methods with custom namespaces
+    void ns_example_nstest() { }
 
-		// function exists solely to test ScriptObject::isGlobalObject
-		bool isGlobal(Atom o);
+    // function exists solely to test ScriptObject::isGlobalObject
+    bool isGlobal(Atom o);
+
+    // function for nodeas
+    void testNodeas();
         
-		DECLARE_SLOTS_SystemClass;
+    DECLARE_SLOTS_SystemClass;
     };
 }
 

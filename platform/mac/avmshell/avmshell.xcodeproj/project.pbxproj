@@ -1523,6 +1523,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE363DF31535BF46001D9323 /* nodeas */,
 				079DF7B00F3A86D50031D1B4 /* core */,
 				079DF7B10F3A86E30031D1B4 /* core_builtins */,
 				072EA0B70F4C1CA4009F11E6 /* eval */,
@@ -1552,6 +1553,14 @@
 			);
 			name = Documentation;
 			sourceTree = "<group>";
+		};
+		CE363DF31535BF46001D9323 /* nodeas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = nodeas;
+			path = ../../../nodeas;
+			sourceTree = SOURCE_ROOT;
 		};
 		D94236920F8ACAAD00F97706 /* VMPI */ = {
 			isa = PBXGroup;

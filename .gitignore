@@ -1,0 +1,6 @@
+platform/mac/avmshell/build/avmshell.build/Debug/
+platform/mac/avmshell/build/avmshell.build/Release/
+platform/mac/avmshell/build/Debug/
+platform/mac/avmshell/build/Release/
+*.swp
+*.swo

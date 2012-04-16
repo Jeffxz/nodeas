@@ -104,9 +104,6 @@ package avmplus
 
     // function exists solely to test ScriptObject::isGlobalObject
     public native static function isGlobal(o:Object):Boolean;
-
-    // nodeas
-    public native static function testNodeas():void;
   }
   
   [native(cls="::avmshell::FileClass", methods="auto")]

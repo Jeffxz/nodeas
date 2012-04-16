@@ -160,9 +160,6 @@ namespace avmshell
     // function exists solely to test ScriptObject::isGlobalObject
     bool isGlobal(Atom o);
 
-    // function for nodeas
-    void testNodeas();
-        
     DECLARE_SLOTS_SystemClass;
     };
 }

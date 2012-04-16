@@ -231,11 +231,4 @@ namespace avmshell
   {
     return AvmCore::isObject(o) ? AvmCore::atomToScriptObject(o)->isGlobalObject() : false;
   }
-
-  void SystemClass::testNodeas()
-  {
-    AvmCore* core = this->core();
-    PrintWriter& console = core->console;
-    console << "this is from testNodeasa";
-  }
 }

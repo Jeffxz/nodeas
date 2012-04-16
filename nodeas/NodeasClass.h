@@ -35,82 +35,69 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#ifndef __avmplus_SamplerScript__
-#define __avmplus_SamplerScript__
+#ifndef __avmplus_NodeasScript__
+#define __avmplus_NodeasScript__
 
 namespace avmplus
 {
- struct Sample;
+ struct Nodeas;
  
- class TraceClass : public ClassClosure
- {
-    public:
-  TraceClass(VTable* cvtable);
-
-  int getLevel(int target);
-  Atom setLevel(int lvl, int target);
-  Atom setListener(FunctionObject* f);
-  FunctionObject* getListener();
-        
-        DECLARE_SLOTS_TraceClass;
-    };
-
- class SamplerScript
+ class NodeasScript
  {
  private:
   static bool trusted(ScriptObject* self) { return self->toplevel()->sampler_trusted(self); }
-  explicit SamplerScript(); // unimplemented, not constructable
+  explicit NodeasScript(); // unimplemented, not constructable
   
  public:
   enum { GET = 1, SET = 2 };
 
   static double getSize(ScriptObject* self, Atom o);
   static Atom getMemberNames(ScriptObject* self, Atom o, bool instanceNames);
-  static Atom getSamples(ScriptObject* self);
-  static void clearSamples(ScriptObject* self);
+  static Atom getNodeass(ScriptObject* self);
+  static void clearNodeass(ScriptObject* self);
   static void startSampling(ScriptObject* self);
   static void stopSampling(ScriptObject* self);
   static void pauseSampling(ScriptObject* self);
   static void sampleInternalAllocs(ScriptObject* self, bool b);
-  static double getSampleCount(ScriptObject* self);
-  static void _setSamplerCallback(ScriptObject* self, ScriptObject* callback);
+  static double getNodeasCount(ScriptObject* self);
+  static void _setNodeasCallback(ScriptObject* self, ScriptObject* callback);
   static double _getInvocationCount(ScriptObject* self, Atom a, QNameObject* qname, uint32 type);
   static bool isGetterSetter(ScriptObject* self, Atom a, QNameObject* name);
 
 #ifdef DEBUGGER
  private:  
-  static ClassClosure* getType(Toplevel* toplevel, SamplerObjectType sot, const void *obj);
+  static ClassClosure* getType(Toplevel* toplevel, NodeasObjectType sot, const void *obj);
   
-  friend class SampleIterator;
-  static ScriptObject* makeSample(ScriptObject* self, const Sample& sample);
-  static bool set_stack(ScriptObject* self, const Sample& sample, SampleObject* sam);
-  static SampleObject* new_sam(ScriptObject* self, const Sample& sample, int clsid);
+  friend class NodeasIterator;
+  static ScriptObject* makeNodeas(ScriptObject* self, const Nodeas& sample);
+  static bool set_stack(ScriptObject* self, const Nodeas& sample, NodeasObject* sam);
+  static NodeasObject* new_sam(ScriptObject* self, const Nodeas& sample, int clsid);
 #endif
  };
 
- class SampleClass : public ClassClosure
+ class NodeasClass : public ClassClosure
  {
  public:
-  SampleClass(VTable *vtable);
+  NodeasClass(VTable *vtable);
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
   
-  DECLARE_SLOTS_SampleClass;
+  DECLARE_SLOTS_NodeasClass;
  };
 
- class SampleObject : public ScriptObject
+ class NodeasObject : public ScriptObject
  {
-  friend class SamplerScript;
+  friend class NodeasScript;
  public:
-  SampleObject(VTable *vtable, ScriptObject *delegate);
+  NodeasObject(VTable *vtable, ScriptObject *delegate);
         
-  DECLARE_SLOTS_SampleObject;
+  DECLARE_SLOTS_NodeasObject;
  };
 
- class NewObjectSampleObject : public SampleObject
+ class NewObjectNodeasObject : public NodeasObject
  {
-  friend class SamplerScript;
+  friend class NodeasScript;
  public:
-  NewObjectSampleObject(VTable *vtable, ScriptObject *delegate);
+  NewObjectNodeasObject(VTable *vtable, ScriptObject *delegate);
   Atom get_object();
   double get_size();
   void setRef(AvmPlusScriptableObject* o) { obj = o; }
@@ -119,52 +106,34 @@ namespace avmplus
   DRCWB(AvmPlusScriptableObject*) obj;
   uint64 size;
         
-  DECLARE_SLOTS_NewObjectSampleObject;
+  DECLARE_SLOTS_NewObjectNodeasObject;
  };
 
- class NewObjectSampleClass : public SampleClass
+ class NewObjectNodeasClass : public NodeasClass
  {
  public:
-  NewObjectSampleClass(VTable *vtable);
+  NewObjectNodeasClass(VTable *vtable);
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
   
-  DECLARE_SLOTS_NewObjectSampleClass;
+  DECLARE_SLOTS_NewObjectNodeasClass;
  };
 
- class DeleteObjectSampleObject : public SampleObject
+ class DeleteObjectNodeasObject : public NodeasObject
  {
-  friend class SamplerScript;
+  friend class NodeasScript;
  public:
-  DeleteObjectSampleObject(VTable *vtable, ScriptObject *delegate);
+  DeleteObjectNodeasObject(VTable *vtable, ScriptObject *delegate);
 
-  DECLARE_SLOTS_DeleteObjectSampleObject;
+  DECLARE_SLOTS_DeleteObjectNodeasObject;
  };
 
- class DeleteObjectSampleClass : public SampleClass
+ class DeleteObjectNodeasClass : public NodeasClass
  {
  public:
-  DeleteObjectSampleClass(VTable *vtable);
+  DeleteObjectNodeasClass(VTable *vtable);
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
   
-  DECLARE_SLOTS_DeleteObjectSampleClass;
- };
-
- class StackFrameObject : public ScriptObject
- {
-  friend class SamplerScript;
- public:
-  StackFrameObject(VTable *vtable, ScriptObject *delegate) : ScriptObject(vtable, delegate) {}
-  
-  DECLARE_SLOTS_StackFrameObject;
- };
-
- class StackFrameClass : public ClassClosure
- {
- public:
-  StackFrameClass(VTable *vtable) : ClassClosure(vtable) { }
-  ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
-  
-  DECLARE_SLOTS_StackFrameClass;
+  DECLARE_SLOTS_DeleteObjectNodeasClass;
  };
 }
-#endif // __avmplus_SamplerScript__
+#endif // __avmplus_NodeasScript__

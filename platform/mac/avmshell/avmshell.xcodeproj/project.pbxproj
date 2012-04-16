@@ -351,6 +351,8 @@
 		3FDDC54C0F60A0B600E29821 /* GCLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDC5490F60A0B600E29821 /* GCLog.cpp */; };
 		3FFDEC6D0F69A54F00E510AB /* GCAllocObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */; };
 		3FFDEC6E0F69A54F00E510AB /* GCAllocObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */; };
+		CEF7896D153C632B002F8155 /* NodeasClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEF7896B153C632B002F8155 /* NodeasClass.cpp */; };
+		CEF7896E153C632B002F8155 /* NodeasClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEF7896B153C632B002F8155 /* NodeasClass.cpp */; };
 		D5AD1DAD0F979A4A002B2FE2 /* SpyUtilsPosix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5AD1DAC0F979A4A002B2FE2 /* SpyUtilsPosix.cpp */; };
 		D5AD1DAE0F979A4A002B2FE2 /* SpyUtilsPosix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5AD1DAC0F979A4A002B2FE2 /* SpyUtilsPosix.cpp */; };
 		D5AD1E2B0F97D7C7002B2FE2 /* ThreadsPosix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5AD1E2A0F97D7C7002B2FE2 /* ThreadsPosix.cpp */; };
@@ -841,6 +843,8 @@
 		3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GCAllocObject.cpp; path = ../../../MMgc/GCAllocObject.cpp; sourceTree = SOURCE_ROOT; };
 		3FFDEC6C0F69A54F00E510AB /* GCSpinLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCSpinLock.h; path = ../../../MMgc/GCSpinLock.h; sourceTree = SOURCE_ROOT; };
 		8DD76F6C0486A84900D96B5E /* shell */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = shell; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF7896B153C632B002F8155 /* NodeasClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeasClass.cpp; path = ../../../nodeas/NodeasClass.cpp; sourceTree = SOURCE_ROOT; };
+		CEF7896C153C632B002F8155 /* NodeasClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeasClass.h; path = ../../../nodeas/NodeasClass.h; sourceTree = SOURCE_ROOT; };
 		D5AD1DAC0F979A4A002B2FE2 /* SpyUtilsPosix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpyUtilsPosix.cpp; path = ../../../VMPI/SpyUtilsPosix.cpp; sourceTree = SOURCE_ROOT; };
 		D5AD1E2A0F97D7C7002B2FE2 /* ThreadsPosix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ThreadsPosix.cpp; path = ../../../VMPI/ThreadsPosix.cpp; sourceTree = SOURCE_ROOT; };
 		D935BDEB0FA0EBA7001E3E70 /* avm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = avm.cpp; path = ../../../core/avm.cpp; sourceTree = SOURCE_ROOT; };
@@ -1523,7 +1527,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CE363DF31535BF46001D9323 /* nodeas */,
+				CEF7896A153C630E002F8155 /* nodeas */,
 				079DF7B00F3A86D50031D1B4 /* core */,
 				079DF7B10F3A86E30031D1B4 /* core_builtins */,
 				072EA0B70F4C1CA4009F11E6 /* eval */,
@@ -1554,13 +1558,14 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
-		CE363DF31535BF46001D9323 /* nodeas */ = {
+		CEF7896A153C630E002F8155 /* nodeas */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7896B153C632B002F8155 /* NodeasClass.cpp */,
+				CEF7896C153C632B002F8155 /* NodeasClass.h */,
 			);
 			name = nodeas;
-			path = ../../../nodeas;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		D94236920F8ACAAD00F97706 /* VMPI */ = {
 			isa = PBXGroup;
@@ -1817,6 +1822,7 @@
 				D9AA8809103E1F5E006CE4FC /* GCGlobalNew.cpp in Sources */,
 				D9FDA5B91045C32D00C96421 /* ST_mmgc_threads.cpp in Sources */,
 				E8B532071069A1DE00ED299A /* instr.cpp in Sources */,
+				CEF7896E153C632B002F8155 /* NodeasClass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1997,6 +2003,7 @@
 				D9AA880A103E1F5E006CE4FC /* GCGlobalNew.cpp in Sources */,
 				D9FDA5B81045C32D00C96421 /* ST_mmgc_threads.cpp in Sources */,
 				E8B532061069A1DE00ED299A /* instr.cpp in Sources */,
+				CEF7896D153C632B002F8155 /* NodeasClass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

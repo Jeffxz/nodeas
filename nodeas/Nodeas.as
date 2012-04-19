@@ -13,23 +13,27 @@ package nodeas
     [native(cls="NodeasClass", instance="NodeasObject", methods="auto", constsetters="true")]
     public class Nodeas
     {
-		/**
-	     * The microseconds that define the duration of the Nodeas instance. For Flash Player debugger version only.
-		 * 
-		 * @playerversion Flash 9.0.115.0
-	     * @langversion 3.0     
-	     * @keyword Nodeas, Nodeas.time, time         
-		 */
+    /**
+     * get version
+     */
+    public native static function getVersion(): String;
+  /**
+      * The microseconds that define the duration of the Nodeas instance. For Flash Player debugger version only.
+   * 
+   * @playerversion Flash 9.0.115.0
+      * @langversion 3.0     
+      * @keyword Nodeas, Nodeas.time, time         
+   */
         public const time:Number;
 
-		/**
-		 * Contains information about the methods executed by Flash Player over a specified period of time. The format for the 
-	     * stack trace is similiar to the content shown in the exception dialog box of the Flash Player debugger version.
+  /**
+   * Contains information about the methods executed by Flash Player over a specified period of time. The format for the 
+      * stack trace is similiar to the content shown in the exception dialog box of the Flash Player debugger version.
          * For Flash Player debugger version only.
          * @playerversion Flash 9.0.115.0
-	     * @langversion 3.0     
-	     * @keyword Nodeas, Nodeas.stack, stack     
-		 */
+      * @langversion 3.0     
+      * @keyword Nodeas, Nodeas.stack, stack     
+   */
         public const stack:Array;
     };
 
@@ -45,39 +49,39 @@ package nodeas
     [native(cls="NewObjectNodeasClass", instance="NewObjectNodeasObject", methods="auto", constsetters="true")]
     public final class NewObjectNodeas extends Nodeas
     {
-    	/** 
-    	 * The unique identification number that matches up with a DeleteObjectNodeas's identification number.
+     /** 
+      * The unique identification number that matches up with a DeleteObjectNodeas's identification number.
          * For Flash Player debugger version only.
          * @playerversion Flash 9.0.115.0
          * @langversion 3.0     
          * @keyword NewObjectNodeas, NewObjectNodeas.id, id  
          * @see flash.sampler.DeleteObjectNodeas#id
-    	 */
-    	public const id:Number;
-    	
-    	/**
+      */
+     public const id:Number;
+     
+     /**
          * The Class object corresponding to the object created within a <code>getNodeass()</code> stream.
          * For Flash Player debugger version only.
          * @playerversion Flash 9.0.115.0
          * @langversion 3.0     
          * @keyword NewObjectNodeas, NewObjectNodeas.type, type 
-    	 */
-    	public const type:Class;
-    	
-    	/**
-    	 * The NewObjectNodeas object if it still exists. If the object has been garbage collected, this property is
-    	 * undefined and a corresponding DeleteObjectNodeas exists. For Flash Player debugger version only.
+      */
+     public const type:Class;
+     
+     /**
+      * The NewObjectNodeas object if it still exists. If the object has been garbage collected, this property is
+      * undefined and a corresponding DeleteObjectNodeas exists. For Flash Player debugger version only.
          * @playerversion Flash 9.0.115.0
          * @langversion 3.0     
          * @keyword NewObjectNodeas, NewObjectNodeas.object, object 
          * @see flash.sampler.DeleteObjectNodeas         
-    	 */
-    	public native function get object():*;
+      */
+     public native function get object():*;
 
         public native function get size() : Number;
     };
-	
-	/**
+ 
+ /**
     * The DeleteObjectNodeas class represents objects that are created within a <code>getNodeass()</code> stream; each
     * DeleteObjectNodeas object corresponds to a NewObjectNodeas object. For Flash Player debugger version only.
     * @playerversion Flash 9.0.115.0
@@ -89,7 +93,7 @@ package nodeas
     [native(cls="DeleteObjectNodeasClass", instance="DeleteObjectNodeasObject", methods="auto", constsetters="true")] // @todo: native only for slot getter/setter
     public final class DeleteObjectNodeas extends Nodeas
     {
-    	/** 
+     /** 
          * The unique identification number that matches up with a NewObjectNodeas's identification number.
          * For Flash Player debugger version only.
          * @playerversion Flash 9.0.115.0
@@ -97,16 +101,16 @@ package nodeas
          * @keyword DeleteObjectNodeas, DeleteObjectNodeas.id, id  
          * @see flash.sampler.NewObjectNodeas#id
          */
-    	public const id:Number;
+     public const id:Number;
 
-	    /**
+     /**
          * The size of the DeleteObjectNodeas object before it is deleted. For Flash Player debugger version only.
          * @playerversion Flash 9.0.115.0
          * @langversion 3.0     
          * @keyword DeleteObjectNodeas, DeleteObjectNodeas.size, size  
          * @see flash.sampler.NewObjectNodeas#id
          */
-		public const size:Number;
+  public const size:Number;
     };
 
 
@@ -120,7 +124,7 @@ package nodeas
      * @see package.html#getNodeass() getNodeass()
      */
     [native("NodeasScript::clearNodeass")]
-	public native function clearNodeass():void;
+ public native function clearNodeass():void;
 
     /**
      * Begins the process of collecting memory usage Nodeas objects.
@@ -132,32 +136,32 @@ package nodeas
      * @see flash.sampler.Nodeas Nodeas class
      */
     [native("NodeasScript::startSampling")]
-	public native function startSampling():void;
+ public native function startSampling():void;
 
-	/**
-	 * Ends the process of collecting memory usage Nodeas objects and frees resources dedicated to the sampling process.
+ /**
+  * Ends the process of collecting memory usage Nodeas objects and frees resources dedicated to the sampling process.
      * You start the sampling process with <code>startSampling()</code>.
      * For Flash Player debugger version only.
      * @playerversion Flash 9.0.115.0
      * @langversion 3.0     
      * @keyword stopSampling      
      * @see flash.sampler.Nodeas Nodeas class
-	 */
+  */
     [native("NodeasScript::stopSampling")]
-	public native function stopSampling():void;
+ public native function stopSampling():void;
 
-	/**
+ /**
      * Stops the sampling process momentarily. Restart the sampling process using <code>startSampling()</code>.
      * For Flash Player debugger version only.
      * @playerversion Flash 9.0.115.0
      * @langversion 3.0     
      * @keyword pauseSampling      
      * @see package.html#startSampling() startSampling()
-	 */
+  */
     [native("NodeasScript::pauseSampling")]
-	public native function pauseSampling():void;
-	
-	/**
+ public native function pauseSampling():void;
+ 
+ /**
      * Tells the sampler if it should create NewObjectNodeass for internal allocations from the flash player.
      * If this is set to true, then every allocation will generate a NewObjectNodeas.  These internal allocs will
      * not have a type, or a reference to the Object.  They will have the ActionScript stack trace that triggered the
@@ -166,16 +170,16 @@ package nodeas
      * @keyword sampleInternalAllocs
      */
     [native("NodeasScript::sampleInternalAllocs")]
-	public native function sampleInternalAllocs(b:Boolean):void;
+ public native function sampleInternalAllocs(b:Boolean):void;
 
-	/**
+ /**
      * Set a callback function for the sampler - this function will be called when the sample stream is almost
      * exhausted.  This should be used to process samples before the sample buffer is filled.  pauseSampling will be called
      * before the callback is called, and startSampling will be called after the callback has been executed.
      * @langversion 3.0
      * @keyword sampleInternalAllocs
      */
-	public function setNodeasCallback(f:Function):void
+ public function setNodeasCallback(f:Function):void
     {
         if( f != null )
         {
@@ -203,8 +207,8 @@ package nodeas
     [native("NodeasScript::_setNodeasCallback")]
     native function _setNodeasCallback(f:Function):void;
     
-	/**
-	* Returns the size in memory of a specified object when used with the Flash Player 9.0.115.0 or later debugger version. If 
+ /**
+ * Returns the size in memory of a specified object when used with the Flash Player 9.0.115.0 or later debugger version. If 
     * used with a Flash Player that is not the debugger version, this method returns <code>0</code>.
     * @param o The object to analyze for memory usage.
     * @return The byte count of memory used by the specified object.
@@ -212,9 +216,9 @@ package nodeas
     * @playerversion Flash 9.0.115.0
     * @langversion 3.0     
     * @keyword getSize      
-	*/
+ */
     [native("NodeasScript::getSize")]
-	public native function getSize(o:*):Number;
+ public native function getSize(o:*):Number;
 
     /**
      * Returns an object containing all members of a specified object, including private members. You can then 

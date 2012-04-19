@@ -80,7 +80,9 @@ namespace avmplus
  public:
   NodeasClass(VTable *vtable);
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
-  
+
+  Stringp getVersion();
+
   DECLARE_SLOTS_NodeasClass;
  };
 
@@ -89,7 +91,7 @@ namespace avmplus
   friend class NodeasScript;
  public:
   NodeasObject(VTable *vtable, ScriptObject *delegate);
-        
+
   DECLARE_SLOTS_NodeasObject;
  };
 

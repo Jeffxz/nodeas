@@ -1,3 +1,4 @@
+
 #ifdef AVMSHELL_BUILD
 #include "avmshell.h"
 #else
@@ -6,6 +7,8 @@
 #include "avmplayer.h"
 #include "NodeasClass.h"
 #endif
+
+#include "nodeassocket.h"
 
 using namespace MMgc;
 
@@ -673,6 +676,27 @@ namespace avmplus
  Stringp NodeasClass::getVersion()
  {
     return core()->newConstantStringLatin1("0.1");
+ }
+
+double NodeasClass::startlisten(uint32 port)
+ {
+     int listenfd, connfd;
+     struct sockaddr_in local;
+     listenfd = socket(AF_INET, SOCK_STREAM, 0);
+
+     memset((char *)&local, 0, sizeof(local));
+     local.sin_family = AF_INET;
+     local.sin_addr.s_addr = htonl(INADDR_ANY);
+     local.sin_port = htons(port);
+     bind(listenfd, (struct sockaddr *)&local, sizeof(local));
+     listen(listenfd, 5);
+     for (;;) {
+         connfd = accept(listenfd, NULL, NULL);
+         write(connfd, "ok", strlen("ok"));
+         fputs("received", stdout);
+         close(connfd);
+     }
+     return listenfd;
  }
 
  NewObjectNodeasClass::NewObjectNodeasClass(VTable *vtable)

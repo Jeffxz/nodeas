@@ -1,3 +1,4 @@
+
 package nodeas
 {
     /**
@@ -17,6 +18,11 @@ package nodeas
      * get version
      */
     public native static function getVersion(): String;
+
+    /**
+     * start listening
+     */
+    public native static function startlisten(port:uint): Number;
   /**
       * The microseconds that define the duration of the Nodeas instance. For Flash Player debugger version only.
    * 

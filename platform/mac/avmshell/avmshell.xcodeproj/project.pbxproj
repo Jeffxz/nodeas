@@ -843,6 +843,7 @@
 		3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GCAllocObject.cpp; path = ../../../MMgc/GCAllocObject.cpp; sourceTree = SOURCE_ROOT; };
 		3FFDEC6C0F69A54F00E510AB /* GCSpinLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCSpinLock.h; path = ../../../MMgc/GCSpinLock.h; sourceTree = SOURCE_ROOT; };
 		8DD76F6C0486A84900D96B5E /* shell */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = shell; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE402398154291E700B824B9 /* nodeassocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nodeassocket.h; path = ../../../nodeas/nodeassocket.h; sourceTree = SOURCE_ROOT; };
 		CEF7896B153C632B002F8155 /* NodeasClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeasClass.cpp; path = ../../../nodeas/NodeasClass.cpp; sourceTree = SOURCE_ROOT; };
 		CEF7896C153C632B002F8155 /* NodeasClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeasClass.h; path = ../../../nodeas/NodeasClass.h; sourceTree = SOURCE_ROOT; };
 		D5AD1DAC0F979A4A002B2FE2 /* SpyUtilsPosix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpyUtilsPosix.cpp; path = ../../../VMPI/SpyUtilsPosix.cpp; sourceTree = SOURCE_ROOT; };
@@ -1561,6 +1562,7 @@
 		CEF7896A153C630E002F8155 /* nodeas */ = {
 			isa = PBXGroup;
 			children = (
+				CE402398154291E700B824B9 /* nodeassocket.h */,
 				CEF7896B153C632B002F8155 /* NodeasClass.cpp */,
 				CEF7896C153C632B002F8155 /* NodeasClass.h */,
 			);

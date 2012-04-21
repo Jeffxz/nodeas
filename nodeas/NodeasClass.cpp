@@ -680,22 +680,35 @@ namespace avmplus
 
 double NodeasClass::startlisten(uint32 port)
  {
-     int listenfd, connfd;
+     int listenfd, connfd, len;
      struct sockaddr_in local;
+     struct sockaddr_in client;
      listenfd = socket(AF_INET, SOCK_STREAM, 0);
+     char buf[2048];
+     char inbuf[2048];
 
      memset((char *)&local, 0, sizeof(local));
+     memset(buf, 0, sizeof(buf));
+     snprintf(buf, sizeof(buf),
+         "HTTP/1.0 200 OK\r\n"
+         "Content-Length: 20\r\n"
+         "Content-Type: text/html\r\n"
+         "\r\n"
+         "<div style=\"color:#f00;\">received</div>\r\n");
      local.sin_family = AF_INET;
      local.sin_addr.s_addr = htonl(INADDR_ANY);
      local.sin_port = htons(port);
      bind(listenfd, (struct sockaddr *)&local, sizeof(local));
      listen(listenfd, 5);
+     core()->console << "started listening port " << port << "\n";
      for (;;) {
-         connfd = accept(listenfd, NULL, NULL);
-         write(connfd, "ok", strlen("ok"));
-         fputs("received", stdout);
-         close(connfd);
+         len = sizeof(client);
+         connfd = accept(listenfd, (struct sockaddr *)&client, (socklen_t *)&len);
+         core()->console << "accepted connection from " << inet_ntoa(client.sin_addr) << "\n";
+         // write(connfd, "<div>received</div>", strlen("<div>received</div>"));
+         send(connfd, buf, (int)strlen(buf), 0);
      }
+     close(connfd);
      return listenfd;
  }
 

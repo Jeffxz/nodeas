@@ -50,29 +50,6 @@ namespace avmplus
   
  public:
   enum { GET = 1, SET = 2 };
-
-  static double getSize(ScriptObject* self, Atom o);
-  static Atom getMemberNames(ScriptObject* self, Atom o, bool instanceNames);
-  static Atom getNodeass(ScriptObject* self);
-  static void clearNodeass(ScriptObject* self);
-  static void startSampling(ScriptObject* self);
-  static void stopSampling(ScriptObject* self);
-  static void pauseSampling(ScriptObject* self);
-  static void sampleInternalAllocs(ScriptObject* self, bool b);
-  static double getNodeasCount(ScriptObject* self);
-  static void _setNodeasCallback(ScriptObject* self, ScriptObject* callback);
-  static double _getInvocationCount(ScriptObject* self, Atom a, QNameObject* qname, uint32 type);
-  static bool isGetterSetter(ScriptObject* self, Atom a, QNameObject* name);
-
-#ifdef DEBUGGER
- private:  
-  static ClassClosure* getType(Toplevel* toplevel, NodeasObjectType sot, const void *obj);
-  
-  friend class NodeasIterator;
-  static ScriptObject* makeNodeas(ScriptObject* self, const Nodeas& sample);
-  static bool set_stack(ScriptObject* self, const Nodeas& sample, NodeasObject* sam);
-  static NodeasObject* new_sam(ScriptObject* self, const Nodeas& sample, int clsid);
-#endif
  };
 
  class NodeasClass : public ClassClosure
@@ -94,49 +71,6 @@ namespace avmplus
   NodeasObject(VTable *vtable, ScriptObject *delegate);
 
   DECLARE_SLOTS_NodeasObject;
- };
-
- class NewObjectNodeasObject : public NodeasObject
- {
-  friend class NodeasScript;
- public:
-  NewObjectNodeasObject(VTable *vtable, ScriptObject *delegate);
-  Atom get_object();
-  double get_size();
-  void setRef(AvmPlusScriptableObject* o) { obj = o; }
-  void setSize(uint64 s) { size = s; }
- private:
-  DRCWB(AvmPlusScriptableObject*) obj;
-  uint64 size;
-        
-  DECLARE_SLOTS_NewObjectNodeasObject;
- };
-
- class NewObjectNodeasClass : public NodeasClass
- {
- public:
-  NewObjectNodeasClass(VTable *vtable);
-  ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
-  
-  DECLARE_SLOTS_NewObjectNodeasClass;
- };
-
- class DeleteObjectNodeasObject : public NodeasObject
- {
-  friend class NodeasScript;
- public:
-  DeleteObjectNodeasObject(VTable *vtable, ScriptObject *delegate);
-
-  DECLARE_SLOTS_DeleteObjectNodeasObject;
- };
-
- class DeleteObjectNodeasClass : public NodeasClass
- {
- public:
-  DeleteObjectNodeasClass(VTable *vtable);
-  ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
-  
-  DECLARE_SLOTS_DeleteObjectNodeasClass;
  };
 }
 #endif // __avmplus_NodeasScript__

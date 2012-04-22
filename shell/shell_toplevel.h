@@ -53,23 +53,19 @@ namespace avmshell {
 namespace avmplus {
     class ArrayObject; //Array
     class ClassClosure; //Class
-    class DeleteObjectNodeasClass; //nodeas::DeleteObjectNodeas$
-    class DeleteObjectNodeasObject; //nodeas::DeleteObjectNodeas
     class DeleteObjectSampleClass; //flash.sampler::DeleteObjectSample$
     class DeleteObjectSampleObject; //flash.sampler::DeleteObjectSample
     class DictionaryClass; //flash.utils::Dictionary$
     class DictionaryObject; //flash.utils::Dictionary
     class JObject; //avmplus::JObject
     class JObjectClass; //avmplus::JObject$
-    class NewObjectNodeasClass; //nodeas::NewObjectNodeas$
-    class NewObjectNodeasObject; //nodeas::NewObjectNodeas
     class NewObjectSampleClass; //flash.sampler::NewObjectSample$
     class NewObjectSampleObject; //flash.sampler::NewObjectSample
     class NodeasClass; //nodeas::Nodeas$
     class NodeasObject; //nodeas::Nodeas
     class SampleClass; //flash.sampler::Sample$
     class SampleObject; //flash.sampler::Sample
-    class ScriptObject; //avmplus::File
+    class ScriptObject; //flash.trace::Trace
     class StackFrameClass; //flash.sampler::StackFrame$
     class StackFrameObject; //flash.sampler::StackFrame
     class String; //String
@@ -117,16 +113,14 @@ const uint32_t abcclass_avmplus_public_interface_665_660_661_662 = 27;
 const uint32_t abcclass_avmplus_Domain = 28;
 const uint32_t abcclass_flash_utils_ByteArray = 29;
 const uint32_t abcclass_nodeas_Nodeas = 30;
-const uint32_t abcclass_nodeas_NewObjectNodeas = 31;
-const uint32_t abcclass_nodeas_DeleteObjectNodeas = 32;
-const uint32_t abcclass_flash_sampler_StackFrame = 33;
-const uint32_t abcclass_flash_sampler_Sample = 34;
-const uint32_t abcclass_flash_sampler_NewObjectSample = 35;
-const uint32_t abcclass_flash_sampler_DeleteObjectSample = 36;
-const uint32_t abcclass_flash_trace_Trace = 37;
-const uint32_t abcclass_flash_utils_Dictionary = 38;
-const uint32_t abcclass_flash_utils_Endian = 39;
-const uint32_t abcclass_avmplus_JObject = 40;
+const uint32_t abcclass_flash_sampler_StackFrame = 31;
+const uint32_t abcclass_flash_sampler_Sample = 32;
+const uint32_t abcclass_flash_sampler_NewObjectSample = 33;
+const uint32_t abcclass_flash_sampler_DeleteObjectSample = 34;
+const uint32_t abcclass_flash_trace_Trace = 35;
+const uint32_t abcclass_flash_utils_Dictionary = 36;
+const uint32_t abcclass_flash_utils_Endian = 37;
+const uint32_t abcclass_avmplus_JObject = 38;
 
 /* methods */
 const uint32_t avmplus_MI_plus = 46;
@@ -191,57 +185,41 @@ const uint32_t flash_utils_ByteArray_position_get = 201;
 const uint32_t flash_utils_ByteArray_position_set = 202;
 const uint32_t flash_utils_ByteArray_endian_get = 203;
 const uint32_t flash_utils_ByteArray_endian_set = 204;
-const uint32_t native_script_function_nodeas_isGetterSetter = 207;
-const uint32_t native_script_function_nodeas__getInvocationCount = 208;
-const uint32_t native_script_function_nodeas_getNodeasCount = 212;
-const uint32_t native_script_function_nodeas_getNodeass = 213;
-const uint32_t native_script_function_nodeas_getMemberNames = 214;
-const uint32_t native_script_function_nodeas_getSize = 215;
-const uint32_t native_script_function_nodeas__setNodeasCallback = 216;
-const uint32_t native_script_function_nodeas_sampleInternalAllocs = 219;
-const uint32_t native_script_function_nodeas_pauseSampling = 220;
-const uint32_t native_script_function_nodeas_stopSampling = 221;
-const uint32_t native_script_function_nodeas_startSampling = 222;
-const uint32_t native_script_function_nodeas_clearNodeass = 223;
-const uint32_t nodeas_Nodeas_getVersion = 225;
-const uint32_t nodeas_Nodeas_startlisten = 226;
-const uint32_t nodeas_NewObjectNodeas_object_get = 229;
-const uint32_t nodeas_NewObjectNodeas_size_get = 230;
-const uint32_t native_script_function_flash_sampler_isGetterSetter = 235;
-const uint32_t native_script_function_flash_sampler__getInvocationCount = 236;
-const uint32_t native_script_function_flash_sampler_getSampleCount = 240;
-const uint32_t native_script_function_flash_sampler_getSamples = 241;
-const uint32_t native_script_function_flash_sampler_getMemberNames = 242;
-const uint32_t native_script_function_flash_sampler_getSize = 243;
-const uint32_t native_script_function_flash_sampler__setSamplerCallback = 244;
-const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 247;
-const uint32_t native_script_function_flash_sampler_pauseSampling = 248;
-const uint32_t native_script_function_flash_sampler_stopSampling = 249;
-const uint32_t native_script_function_flash_sampler_startSampling = 250;
-const uint32_t native_script_function_flash_sampler_clearSamples = 251;
-const uint32_t flash_sampler_NewObjectSample_object_get = 258;
-const uint32_t flash_sampler_NewObjectSample_size_get = 259;
-const uint32_t flash_trace_Trace_setLevel = 265;
-const uint32_t flash_trace_Trace_getLevel = 266;
-const uint32_t flash_trace_Trace_setListener = 267;
-const uint32_t flash_trace_Trace_getListener = 268;
-const uint32_t flash_utils_Dictionary_private_init = 272;
-const uint32_t avmplus_JObject_create = 279;
-const uint32_t avmplus_JObject_createArray = 280;
-const uint32_t avmplus_JObject_toArray = 281;
-const uint32_t avmplus_JObject_constructorSignature = 282;
-const uint32_t avmplus_JObject_methodSignature = 283;
-const uint32_t avmplus_JObject_fieldSignature = 284;
+const uint32_t nodeas_Nodeas_getVersion = 208;
+const uint32_t nodeas_Nodeas_startlisten = 209;
+const uint32_t native_script_function_flash_sampler_isGetterSetter = 212;
+const uint32_t native_script_function_flash_sampler__getInvocationCount = 213;
+const uint32_t native_script_function_flash_sampler_getSampleCount = 217;
+const uint32_t native_script_function_flash_sampler_getSamples = 218;
+const uint32_t native_script_function_flash_sampler_getMemberNames = 219;
+const uint32_t native_script_function_flash_sampler_getSize = 220;
+const uint32_t native_script_function_flash_sampler__setSamplerCallback = 221;
+const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 224;
+const uint32_t native_script_function_flash_sampler_pauseSampling = 225;
+const uint32_t native_script_function_flash_sampler_stopSampling = 226;
+const uint32_t native_script_function_flash_sampler_startSampling = 227;
+const uint32_t native_script_function_flash_sampler_clearSamples = 228;
+const uint32_t flash_sampler_NewObjectSample_object_get = 235;
+const uint32_t flash_sampler_NewObjectSample_size_get = 236;
+const uint32_t flash_trace_Trace_setLevel = 242;
+const uint32_t flash_trace_Trace_getLevel = 243;
+const uint32_t flash_trace_Trace_setListener = 244;
+const uint32_t flash_trace_Trace_getListener = 245;
+const uint32_t flash_utils_Dictionary_private_init = 249;
+const uint32_t avmplus_JObject_create = 256;
+const uint32_t avmplus_JObject_createArray = 257;
+const uint32_t avmplus_JObject_toArray = 258;
+const uint32_t avmplus_JObject_constructorSignature = 259;
+const uint32_t avmplus_JObject_methodSignature = 260;
+const uint32_t avmplus_JObject_fieldSignature = 261;
 
 extern AvmBox shell_toplevel_s2a_oos_rest_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_JObject_methodSignature_thunk  shell_toplevel_s2a_oos_rest_thunk
 
 extern AvmBox shell_toplevel_func_v2a_oo_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler__setSamplerCallback_thunk  shell_toplevel_func_v2a_oo_thunk
-#define native_script_function_nodeas__setNodeasCallback_thunk  shell_toplevel_func_v2a_oo_thunk
 
 extern double shell_toplevel_d2d_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define nodeas_NewObjectNodeas_size_get_thunk  shell_toplevel_d2d_o_thunk
 #define flash_sampler_NewObjectSample_size_get_thunk  shell_toplevel_d2d_o_thunk
 #define avmplus_System_freeMemory_get_thunk  shell_toplevel_d2d_o_thunk
 #define avmplus_System_privateMemory_get_thunk  shell_toplevel_d2d_o_thunk
@@ -258,7 +236,6 @@ extern AvmBox shell_toplevel_a2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 #define avmplus_Domain_getClass_thunk  shell_toplevel_a2a_os_thunk
 
 extern AvmBox shell_toplevel_func_b2a_oao_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define native_script_function_nodeas_isGetterSetter_thunk  shell_toplevel_func_b2a_oao_thunk
 #define native_script_function_flash_sampler_isGetterSetter_thunk  shell_toplevel_func_b2a_oao_thunk
 
 extern AvmBox shell_toplevel_v2a_oi_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
@@ -276,7 +253,6 @@ extern AvmBox shell_toplevel_s2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox
 #define nodeas_Nodeas_getVersion_thunk  shell_toplevel_s2a_o_thunk
 
 extern AvmBox shell_toplevel_func_a2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define native_script_function_nodeas_getNodeass_thunk  shell_toplevel_func_a2a_o_thunk
 #define native_script_function_flash_sampler_getSamples_thunk  shell_toplevel_func_a2a_o_thunk
 
 extern AvmBox shell_toplevel_v2a_oss_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
@@ -284,24 +260,18 @@ extern AvmBox shell_toplevel_v2a_oss_thunk(AvmMethodEnv env, uint32_t argc, AvmB
 
 extern double shell_toplevel_func_d2d_oa_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler_getSize_thunk  shell_toplevel_func_d2d_oa_thunk
-#define native_script_function_nodeas_getSize_thunk  shell_toplevel_func_d2d_oa_thunk
 
 extern AvmBox shell_toplevel_func_a2a_oab_optbfalse_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define native_script_function_nodeas_getMemberNames_thunk  shell_toplevel_func_a2a_oab_optbfalse_thunk
 #define native_script_function_flash_sampler_getMemberNames_thunk  shell_toplevel_func_a2a_oab_optbfalse_thunk
 
 extern AvmBox shell_toplevel_a2a_oii_opti2_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_trace_Trace_setLevel_thunk  shell_toplevel_a2a_oii_opti2_thunk
 
 extern AvmBox shell_toplevel_func_v2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define native_script_function_nodeas_pauseSampling_thunk  shell_toplevel_func_v2a_o_thunk
-#define native_script_function_nodeas_clearNodeass_thunk  shell_toplevel_func_v2a_o_thunk
 #define native_script_function_flash_sampler_pauseSampling_thunk  shell_toplevel_func_v2a_o_thunk
-#define native_script_function_nodeas_startSampling_thunk  shell_toplevel_func_v2a_o_thunk
-#define native_script_function_flash_sampler_stopSampling_thunk  shell_toplevel_func_v2a_o_thunk
 #define native_script_function_flash_sampler_clearSamples_thunk  shell_toplevel_func_v2a_o_thunk
 #define native_script_function_flash_sampler_startSampling_thunk  shell_toplevel_func_v2a_o_thunk
-#define native_script_function_nodeas_stopSampling_thunk  shell_toplevel_func_v2a_o_thunk
+#define native_script_function_flash_sampler_stopSampling_thunk  shell_toplevel_func_v2a_o_thunk
 
 extern AvmBox shell_toplevel_u2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_readUnsignedShort_thunk  shell_toplevel_u2a_o_thunk
@@ -321,7 +291,6 @@ extern AvmBox shell_toplevel_s2a_os_rest_thunk(AvmMethodEnv env, uint32_t argc, 
 
 extern AvmBox shell_toplevel_func_v2a_ob_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler_sampleInternalAllocs_thunk  shell_toplevel_func_v2a_ob_thunk
-#define native_script_function_nodeas_sampleInternalAllocs_thunk  shell_toplevel_func_v2a_ob_thunk
 
 extern AvmBox shell_toplevel_i2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_readInt_thunk  shell_toplevel_i2a_o_thunk
@@ -348,17 +317,15 @@ extern AvmBox shell_toplevel_a2a_os_rest_thunk(AvmMethodEnv env, uint32_t argc, 
 
 extern double shell_toplevel_func_d2d_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler_getSampleCount_thunk  shell_toplevel_func_d2d_o_thunk
-#define native_script_function_nodeas_getNodeasCount_thunk  shell_toplevel_func_d2d_o_thunk
 
 extern AvmBox shell_toplevel_b2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_File_exists_thunk  shell_toplevel_b2a_os_thunk
 
 extern AvmBox shell_toplevel_a2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define nodeas_NewObjectNodeas_object_get_thunk  shell_toplevel_a2a_o_thunk
-#define avmplus_Domain_currentDomain_get_thunk  shell_toplevel_a2a_o_thunk
-#define avmplus_System_private_getArgv_thunk  shell_toplevel_a2a_o_thunk
 #define flash_trace_Trace_getListener_thunk  shell_toplevel_a2a_o_thunk
+#define avmplus_System_private_getArgv_thunk  shell_toplevel_a2a_o_thunk
 #define flash_sampler_NewObjectSample_object_get_thunk  shell_toplevel_a2a_o_thunk
+#define avmplus_Domain_currentDomain_get_thunk  shell_toplevel_a2a_o_thunk
 #define avmplus_Domain_domainMemory_get_thunk  shell_toplevel_a2a_o_thunk
 
 extern double shell_toplevel_d2d_od_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
@@ -409,7 +376,6 @@ extern AvmBox shell_toplevel_v2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 
 extern double shell_toplevel_func_d2d_oaou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler__getInvocationCount_thunk  shell_toplevel_func_d2d_oaou_thunk
-#define native_script_function_nodeas__getInvocationCount_thunk  shell_toplevel_func_d2d_oaou_thunk
 
 extern AvmBox shell_toplevel_a2a_oo_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_JObject_toArray_thunk  shell_toplevel_a2a_oo_thunk
@@ -554,116 +520,12 @@ class NodeasObjectSlots
 {
     friend class SlotOffsetsAndAsserts;
 public:
-    REALLY_INLINE ArrayObject* get_stack() const { return m_stack; }
-    void set_stack(NodeasObject* obj, ArrayObject* newVal);
-    REALLY_INLINE double get_time() const { return m_time; }
-    void set_time(double newVal);
 private:
-    DRCWB(ArrayObject*) m_stack;
-    double m_time;
 };
-REALLY_INLINE void NodeasObjectSlots::set_stack(NodeasObject* obj, ArrayObject* newVal)
-{
-    m_stack.set(((ScriptObject*)obj)->gc(), obj, newVal);
-}
-REALLY_INLINE void NodeasObjectSlots::set_time(double newVal) { m_time = newVal; }
 #define DECLARE_SLOTS_NodeasObject \
     private: \
         friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-    protected: \
-        REALLY_INLINE ArrayObject* get_stack() const { return m_slots_NodeasObject.get_stack(); } \
-        REALLY_INLINE void set_stack(ArrayObject* newVal) { m_slots_NodeasObject.set_stack(this, newVal); } \
-        REALLY_INLINE double get_time() const { return m_slots_NodeasObject.get_time(); } \
-        REALLY_INLINE void set_time(double newVal) { m_slots_NodeasObject.set_time(newVal); } \
-    private: \
-        avmplus::NativeID::NodeasObjectSlots m_slots_NodeasObject
-//-----------------------------------------------------------
-
-// nodeas::NewObjectNodeas$
-//-----------------------------------------------------------
-class NewObjectNodeasClassSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-private:
-};
-#define DECLARE_SLOTS_NewObjectNodeasClass \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::NewObjectNodeasClassSlots EmptySlotsStruct_NewObjectNodeasClass
-//-----------------------------------------------------------
-
-// nodeas::NewObjectNodeas
-//-----------------------------------------------------------
-class NewObjectNodeasObjectSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-    REALLY_INLINE ClassClosure* get_type() const { return m_type; }
-    void set_type(NewObjectNodeasObject* obj, ClassClosure* newVal);
-    REALLY_INLINE double get_id() const { return m_id; }
-    void set_id(double newVal);
-private:
-    DRCWB(ClassClosure*) m_type;
-    double m_id;
-};
-REALLY_INLINE void NewObjectNodeasObjectSlots::set_type(NewObjectNodeasObject* obj, ClassClosure* newVal)
-{
-    m_type.set(((ScriptObject*)obj)->gc(), obj, newVal);
-}
-REALLY_INLINE void NewObjectNodeasObjectSlots::set_id(double newVal) { m_id = newVal; }
-#define DECLARE_SLOTS_NewObjectNodeasObject \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-    protected: \
-        REALLY_INLINE ClassClosure* get_type() const { return m_slots_NewObjectNodeasObject.get_type(); } \
-        REALLY_INLINE void set_type(ClassClosure* newVal) { m_slots_NewObjectNodeasObject.set_type(this, newVal); } \
-        REALLY_INLINE double get_id() const { return m_slots_NewObjectNodeasObject.get_id(); } \
-        REALLY_INLINE void set_id(double newVal) { m_slots_NewObjectNodeasObject.set_id(newVal); } \
-    private: \
-        avmplus::NativeID::NewObjectNodeasObjectSlots m_slots_NewObjectNodeasObject
-//-----------------------------------------------------------
-
-// nodeas::DeleteObjectNodeas$
-//-----------------------------------------------------------
-class DeleteObjectNodeasClassSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-private:
-};
-#define DECLARE_SLOTS_DeleteObjectNodeasClass \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::DeleteObjectNodeasClassSlots EmptySlotsStruct_DeleteObjectNodeasClass
-//-----------------------------------------------------------
-
-// nodeas::DeleteObjectNodeas
-//-----------------------------------------------------------
-class DeleteObjectNodeasObjectSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-    REALLY_INLINE double get_id() const { return m_id; }
-    void set_id(double newVal);
-    REALLY_INLINE double get_size() const { return m_size; }
-    void set_size(double newVal);
-private:
-    double m_id;
-    double m_size;
-};
-REALLY_INLINE void DeleteObjectNodeasObjectSlots::set_id(double newVal) { m_id = newVal; }
-REALLY_INLINE void DeleteObjectNodeasObjectSlots::set_size(double newVal) { m_size = newVal; }
-#define DECLARE_SLOTS_DeleteObjectNodeasObject \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-    protected: \
-        REALLY_INLINE double get_id() const { return m_slots_DeleteObjectNodeasObject.get_id(); } \
-        REALLY_INLINE void set_id(double newVal) { m_slots_DeleteObjectNodeasObject.set_id(newVal); } \
-        REALLY_INLINE double get_size() const { return m_slots_DeleteObjectNodeasObject.get_size(); } \
-        REALLY_INLINE void set_size(double newVal) { m_slots_DeleteObjectNodeasObject.set_size(newVal); } \
-    private: \
-        avmplus::NativeID::DeleteObjectNodeasObjectSlots m_slots_DeleteObjectNodeasObject
+        typedef avmplus::NativeID::NodeasObjectSlots EmptySlotsStruct_NodeasObject
 //-----------------------------------------------------------
 
 // flash.sampler::StackFrame$

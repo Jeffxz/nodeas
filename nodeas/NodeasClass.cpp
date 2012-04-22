@@ -16,17 +16,12 @@ namespace avmplus
 {
  using namespace MMgc;
 
- static double _get_size(Atom a)
- {
-  (void)a;
-  return 0;
- }
-
  /* NodeasObject */
  NodeasObject::NodeasObject(VTable *vtable, ScriptObject *delegate)
   : ScriptObject(vtable, delegate) 
  {}
 
+ /* NodeasClass */
  NodeasClass::NodeasClass(VTable *vtable)
   : ClassClosure(vtable)
  {
@@ -43,14 +38,13 @@ namespace avmplus
     return core()->newConstantStringLatin1("0.1");
  }
 
-double NodeasClass::startlisten(uint32 port)
+double NodeasClass::startlisten(uint32 port, ScriptObject *callback)
  {
      int listenfd, connfd, len;
      struct sockaddr_in local;
      struct sockaddr_in client;
      listenfd = socket(AF_INET, SOCK_STREAM, 0);
      char buf[2048];
-     char inbuf[2048];
 
      memset((char *)&local, 0, sizeof(local));
      memset(buf, 0, sizeof(buf));
@@ -71,10 +65,11 @@ double NodeasClass::startlisten(uint32 port)
          connfd = accept(listenfd, (struct sockaddr *)&client, (socklen_t *)&len);
          core()->console << "accepted connection from " << inet_ntoa(client.sin_addr) << "\n";
          // write(connfd, "<div>received</div>", strlen("<div>received</div>"));
+         Atom args[1] = {nullObjectAtom};
+         callback->call(0, args);
          send(connfd, buf, (int)strlen(buf), 0);
      }
      close(connfd);
      return listenfd;
  }
 }
-

@@ -59,7 +59,7 @@ namespace avmplus
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
 
   Stringp getVersion();
-  double  startlisten(uint32 port);
+  double  startlisten(uint32 port, ScriptObject *callback);
 
   DECLARE_SLOTS_NodeasClass;
  };

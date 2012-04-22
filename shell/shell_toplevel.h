@@ -364,15 +364,15 @@ extern AvmBox shell_toplevel_b2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox
 #define flash_utils_ByteArray_readBoolean_thunk  shell_toplevel_b2a_o_thunk
 #define avmplus_System_isDebugger_thunk  shell_toplevel_b2a_o_thunk
 
-extern double shell_toplevel_d2d_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define nodeas_Nodeas_startlisten_thunk  shell_toplevel_d2d_ou_thunk
-
 extern AvmBox shell_toplevel_v2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_writeUTF_thunk  shell_toplevel_v2a_os_thunk
 #define flash_utils_ByteArray_endian_set_thunk  shell_toplevel_v2a_os_thunk
 #define flash_utils_ByteArray_writeFile_thunk  shell_toplevel_v2a_os_thunk
 #define avmplus_System_write_thunk  shell_toplevel_v2a_os_thunk
 #define flash_utils_ByteArray_writeUTFBytes_thunk  shell_toplevel_v2a_os_thunk
+
+extern double shell_toplevel_d2d_ouo_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
+#define nodeas_Nodeas_startlisten_thunk  shell_toplevel_d2d_ouo_thunk
 
 extern double shell_toplevel_func_d2d_oaou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler__getInvocationCount_thunk  shell_toplevel_func_d2d_oaou_thunk

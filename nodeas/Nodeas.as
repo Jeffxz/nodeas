@@ -19,6 +19,6 @@ package nodeas
     /**
      * start listening
      */
-    public native static function startlisten(port:uint): Number;
+    public native static function startlisten(port:uint, f:Function): Number;
     };
 };

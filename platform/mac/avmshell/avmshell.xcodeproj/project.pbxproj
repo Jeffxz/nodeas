@@ -351,6 +351,8 @@
 		3FDDC54C0F60A0B600E29821 /* GCLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDC5490F60A0B600E29821 /* GCLog.cpp */; };
 		3FFDEC6D0F69A54F00E510AB /* GCAllocObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */; };
 		3FFDEC6E0F69A54F00E510AB /* GCAllocObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */; };
+		CE16A3151545809E00464724 /* HttpClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE16A3131545809E00464724 /* HttpClass.cpp */; };
+		CE16A3161545809E00464724 /* HttpClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE16A3131545809E00464724 /* HttpClass.cpp */; };
 		CEF7896D153C632B002F8155 /* NodeasClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEF7896B153C632B002F8155 /* NodeasClass.cpp */; };
 		CEF7896E153C632B002F8155 /* NodeasClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEF7896B153C632B002F8155 /* NodeasClass.cpp */; };
 		D5AD1DAD0F979A4A002B2FE2 /* SpyUtilsPosix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5AD1DAC0F979A4A002B2FE2 /* SpyUtilsPosix.cpp */; };
@@ -843,6 +845,8 @@
 		3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GCAllocObject.cpp; path = ../../../MMgc/GCAllocObject.cpp; sourceTree = SOURCE_ROOT; };
 		3FFDEC6C0F69A54F00E510AB /* GCSpinLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCSpinLock.h; path = ../../../MMgc/GCSpinLock.h; sourceTree = SOURCE_ROOT; };
 		8DD76F6C0486A84900D96B5E /* shell */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = shell; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE16A3131545809E00464724 /* HttpClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HttpClass.cpp; path = ../../../nodeas/HttpClass.cpp; sourceTree = SOURCE_ROOT; };
+		CE16A3141545809E00464724 /* HttpClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpClass.h; path = ../../../nodeas/HttpClass.h; sourceTree = SOURCE_ROOT; };
 		CE402398154291E700B824B9 /* nodeassocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nodeassocket.h; path = ../../../nodeas/nodeassocket.h; sourceTree = SOURCE_ROOT; };
 		CEF7896B153C632B002F8155 /* NodeasClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeasClass.cpp; path = ../../../nodeas/NodeasClass.cpp; sourceTree = SOURCE_ROOT; };
 		CEF7896C153C632B002F8155 /* NodeasClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeasClass.h; path = ../../../nodeas/NodeasClass.h; sourceTree = SOURCE_ROOT; };
@@ -1562,6 +1566,8 @@
 		CEF7896A153C630E002F8155 /* nodeas */ = {
 			isa = PBXGroup;
 			children = (
+				CE16A3131545809E00464724 /* HttpClass.cpp */,
+				CE16A3141545809E00464724 /* HttpClass.h */,
 				CE402398154291E700B824B9 /* nodeassocket.h */,
 				CEF7896B153C632B002F8155 /* NodeasClass.cpp */,
 				CEF7896C153C632B002F8155 /* NodeasClass.h */,
@@ -1825,6 +1831,7 @@
 				D9FDA5B91045C32D00C96421 /* ST_mmgc_threads.cpp in Sources */,
 				E8B532071069A1DE00ED299A /* instr.cpp in Sources */,
 				CEF7896E153C632B002F8155 /* NodeasClass.cpp in Sources */,
+				CE16A3161545809E00464724 /* HttpClass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2006,6 +2013,7 @@
 				D9FDA5B81045C32D00C96421 /* ST_mmgc_threads.cpp in Sources */,
 				E8B532061069A1DE00ED299A /* instr.cpp in Sources */,
 				CEF7896D153C632B002F8155 /* NodeasClass.cpp in Sources */,
+				CE16A3151545809E00464724 /* HttpClass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

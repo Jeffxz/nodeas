@@ -78,6 +78,7 @@ namespace avmplus
 	class NewObjectSampleObject;
 	class TraceClass;
     class NodeasObject;
+    class HttpObject;
 }
 
 #include "shell_toplevel.h"
@@ -119,9 +120,12 @@ namespace avmshell
 #include "ByteArrayGlue.h"
 #include "DictionaryGlue.h"
 #include "SamplerScript.h"
-#include "NodeasClass.h"
 #include "JavaGlue.h"
 #include "ShellCore.h"
+
+/* nodeas */
+#include "NodeasClass.h"
+#include "HttpClass.h"
 
 namespace avmshell
 { 

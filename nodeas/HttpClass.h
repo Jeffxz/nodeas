@@ -35,41 +35,41 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#ifndef __avmplus_NodeasScript__
-#define __avmplus_NodeasScript__
+#ifndef __avmplus_HttpClass__
+#define __avmplus_HttpClass__
 
 namespace avmplus
 {
- struct Nodeas;
+ struct Http;
  
- class NodeasScript
+ class HttpScript
  {
  private:
   static bool trusted(ScriptObject* self) { return self->toplevel()->sampler_trusted(self); }
-  explicit NodeasScript(); // unimplemented, not constructable
+  explicit HttpScript(); // unimplemented, not constructable
   
  public:
   enum { GET = 1, SET = 2 };
  };
 
- class NodeasClass : public ClassClosure
+ class HttpClass : public ClassClosure
  {
  public:
-  NodeasClass(VTable *vtable);
+  HttpClass(VTable *vtable);
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
 
-  Stringp getVersion();
+  double  startlisten(uint32 port, ScriptObject *callback);
 
-  DECLARE_SLOTS_NodeasClass;
+  DECLARE_SLOTS_HttpClass;
  };
 
- class NodeasObject : public ScriptObject
+ class HttpObject : public ScriptObject
  {
-  friend class NodeasScript;
+  friend class HttpScript;
  public:
-  NodeasObject(VTable *vtable, ScriptObject *delegate);
+  HttpObject(VTable *vtable, ScriptObject *delegate);
 
-  DECLARE_SLOTS_NodeasObject;
+  DECLARE_SLOTS_HttpObject;
  };
 }
-#endif // __avmplus_NodeasScript__
+#endif // __avmplus_HttpScript__

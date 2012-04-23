@@ -1,5 +1,5 @@
 
-package nodeas
+package nodeas.http
 {
     /**
      * The Nodeas class creates objects that hold memory analysis information over distinct durations.
@@ -9,12 +9,12 @@ package nodeas
      * @langversion 3.0     
      * @keyword Nodeas      
      */
-    [native(cls="NodeasClass", instance="NodeasObject", methods="auto", constsetters="true")]
-    public class Nodeas
+    [native(cls="HttpClass", instance="HttpObject", methods="auto", constsetters="true")]
+    public class Http
     {
     /**
-     * get version
+     * start listening
      */
-    public native static function getVersion(): String;
+    public native static function startlisten(port:uint, f:Function): Number;
     };
 };

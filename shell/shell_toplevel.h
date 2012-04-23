@@ -57,6 +57,8 @@ namespace avmplus {
     class DeleteObjectSampleObject; //flash.sampler::DeleteObjectSample
     class DictionaryClass; //flash.utils::Dictionary$
     class DictionaryObject; //flash.utils::Dictionary
+    class HttpClass; //nodeas.http::Http$
+    class HttpObject; //nodeas.http::Http
     class JObject; //avmplus::JObject
     class JObjectClass; //avmplus::JObject$
     class NewObjectSampleClass; //flash.sampler::NewObjectSample$
@@ -65,7 +67,7 @@ namespace avmplus {
     class NodeasObject; //nodeas::Nodeas
     class SampleClass; //flash.sampler::Sample$
     class SampleObject; //flash.sampler::Sample
-    class ScriptObject; //flash.trace::Trace
+    class ScriptObject; //avmplus::File
     class StackFrameClass; //flash.sampler::StackFrame$
     class StackFrameObject; //flash.sampler::StackFrame
     class String; //String
@@ -113,14 +115,15 @@ const uint32_t abcclass_avmplus_public_interface_665_660_661_662 = 27;
 const uint32_t abcclass_avmplus_Domain = 28;
 const uint32_t abcclass_flash_utils_ByteArray = 29;
 const uint32_t abcclass_nodeas_Nodeas = 30;
-const uint32_t abcclass_flash_sampler_StackFrame = 31;
-const uint32_t abcclass_flash_sampler_Sample = 32;
-const uint32_t abcclass_flash_sampler_NewObjectSample = 33;
-const uint32_t abcclass_flash_sampler_DeleteObjectSample = 34;
-const uint32_t abcclass_flash_trace_Trace = 35;
-const uint32_t abcclass_flash_utils_Dictionary = 36;
-const uint32_t abcclass_flash_utils_Endian = 37;
-const uint32_t abcclass_avmplus_JObject = 38;
+const uint32_t abcclass_nodeas_http_Http = 31;
+const uint32_t abcclass_flash_sampler_StackFrame = 32;
+const uint32_t abcclass_flash_sampler_Sample = 33;
+const uint32_t abcclass_flash_sampler_NewObjectSample = 34;
+const uint32_t abcclass_flash_sampler_DeleteObjectSample = 35;
+const uint32_t abcclass_flash_trace_Trace = 36;
+const uint32_t abcclass_flash_utils_Dictionary = 37;
+const uint32_t abcclass_flash_utils_Endian = 38;
+const uint32_t abcclass_avmplus_JObject = 39;
 
 /* methods */
 const uint32_t avmplus_MI_plus = 46;
@@ -186,32 +189,32 @@ const uint32_t flash_utils_ByteArray_position_set = 202;
 const uint32_t flash_utils_ByteArray_endian_get = 203;
 const uint32_t flash_utils_ByteArray_endian_set = 204;
 const uint32_t nodeas_Nodeas_getVersion = 208;
-const uint32_t nodeas_Nodeas_startlisten = 209;
-const uint32_t native_script_function_flash_sampler_isGetterSetter = 212;
-const uint32_t native_script_function_flash_sampler__getInvocationCount = 213;
-const uint32_t native_script_function_flash_sampler_getSampleCount = 217;
-const uint32_t native_script_function_flash_sampler_getSamples = 218;
-const uint32_t native_script_function_flash_sampler_getMemberNames = 219;
-const uint32_t native_script_function_flash_sampler_getSize = 220;
-const uint32_t native_script_function_flash_sampler__setSamplerCallback = 221;
-const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 224;
-const uint32_t native_script_function_flash_sampler_pauseSampling = 225;
-const uint32_t native_script_function_flash_sampler_stopSampling = 226;
-const uint32_t native_script_function_flash_sampler_startSampling = 227;
-const uint32_t native_script_function_flash_sampler_clearSamples = 228;
-const uint32_t flash_sampler_NewObjectSample_object_get = 235;
-const uint32_t flash_sampler_NewObjectSample_size_get = 236;
-const uint32_t flash_trace_Trace_setLevel = 242;
-const uint32_t flash_trace_Trace_getLevel = 243;
-const uint32_t flash_trace_Trace_setListener = 244;
-const uint32_t flash_trace_Trace_getListener = 245;
-const uint32_t flash_utils_Dictionary_private_init = 249;
-const uint32_t avmplus_JObject_create = 256;
-const uint32_t avmplus_JObject_createArray = 257;
-const uint32_t avmplus_JObject_toArray = 258;
-const uint32_t avmplus_JObject_constructorSignature = 259;
-const uint32_t avmplus_JObject_methodSignature = 260;
-const uint32_t avmplus_JObject_fieldSignature = 261;
+const uint32_t nodeas_http_Http_startlisten = 212;
+const uint32_t native_script_function_flash_sampler_isGetterSetter = 215;
+const uint32_t native_script_function_flash_sampler__getInvocationCount = 216;
+const uint32_t native_script_function_flash_sampler_getSampleCount = 220;
+const uint32_t native_script_function_flash_sampler_getSamples = 221;
+const uint32_t native_script_function_flash_sampler_getMemberNames = 222;
+const uint32_t native_script_function_flash_sampler_getSize = 223;
+const uint32_t native_script_function_flash_sampler__setSamplerCallback = 224;
+const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 227;
+const uint32_t native_script_function_flash_sampler_pauseSampling = 228;
+const uint32_t native_script_function_flash_sampler_stopSampling = 229;
+const uint32_t native_script_function_flash_sampler_startSampling = 230;
+const uint32_t native_script_function_flash_sampler_clearSamples = 231;
+const uint32_t flash_sampler_NewObjectSample_object_get = 238;
+const uint32_t flash_sampler_NewObjectSample_size_get = 239;
+const uint32_t flash_trace_Trace_setLevel = 245;
+const uint32_t flash_trace_Trace_getLevel = 246;
+const uint32_t flash_trace_Trace_setListener = 247;
+const uint32_t flash_trace_Trace_getListener = 248;
+const uint32_t flash_utils_Dictionary_private_init = 252;
+const uint32_t avmplus_JObject_create = 259;
+const uint32_t avmplus_JObject_createArray = 260;
+const uint32_t avmplus_JObject_toArray = 261;
+const uint32_t avmplus_JObject_constructorSignature = 262;
+const uint32_t avmplus_JObject_methodSignature = 263;
+const uint32_t avmplus_JObject_fieldSignature = 264;
 
 extern AvmBox shell_toplevel_s2a_oos_rest_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_JObject_methodSignature_thunk  shell_toplevel_s2a_oos_rest_thunk
@@ -372,7 +375,7 @@ extern AvmBox shell_toplevel_v2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 #define flash_utils_ByteArray_writeUTFBytes_thunk  shell_toplevel_v2a_os_thunk
 
 extern double shell_toplevel_d2d_ouo_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define nodeas_Nodeas_startlisten_thunk  shell_toplevel_d2d_ouo_thunk
+#define nodeas_http_Http_startlisten_thunk  shell_toplevel_d2d_ouo_thunk
 
 extern double shell_toplevel_func_d2d_oaou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler__getInvocationCount_thunk  shell_toplevel_func_d2d_oaou_thunk
@@ -526,6 +529,34 @@ private:
     private: \
         friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
         typedef avmplus::NativeID::NodeasObjectSlots EmptySlotsStruct_NodeasObject
+//-----------------------------------------------------------
+
+// nodeas.http::Http$
+//-----------------------------------------------------------
+class HttpClassSlots
+{
+    friend class SlotOffsetsAndAsserts;
+public:
+private:
+};
+#define DECLARE_SLOTS_HttpClass \
+    private: \
+        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
+        typedef avmplus::NativeID::HttpClassSlots EmptySlotsStruct_HttpClass
+//-----------------------------------------------------------
+
+// nodeas.http::Http
+//-----------------------------------------------------------
+class HttpObjectSlots
+{
+    friend class SlotOffsetsAndAsserts;
+public:
+private:
+};
+#define DECLARE_SLOTS_HttpObject \
+    private: \
+        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
+        typedef avmplus::NativeID::HttpObjectSlots EmptySlotsStruct_HttpObject
 //-----------------------------------------------------------
 
 // flash.sampler::StackFrame$

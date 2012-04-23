@@ -73,6 +73,7 @@ uint32 HttpClass::startlisten(uint32 port)
 		char buf[1024];
 		int count = 0;
 		count = ::recv(connfd, buf, 1024, 0);
+		/* TODO: if (count < 0) handle error */
 		core()->console << "received: " << count << " bytes\n";
 		while (count >= 1024)
 		{

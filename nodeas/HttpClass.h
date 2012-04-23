@@ -58,7 +58,11 @@ namespace avmplus
   HttpClass(VTable *vtable);
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
 
-  double  startlisten(uint32 port, ScriptObject *callback);
+  uint32 startlisten(uint32 port);
+  uint32 accept(uint32 socket);
+  uint32 send(uint32 connfd, Stringp data);
+  Stringp recv(uint32 connfd);
+  void close(uint32 connfd);
 
   DECLARE_SLOTS_HttpClass;
  };

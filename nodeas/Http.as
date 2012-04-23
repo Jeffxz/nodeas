@@ -15,6 +15,27 @@ package nodeas.http
     /**
      * start listening
      */
-    public native static function startlisten(port:uint, f:Function): Number;
+    public native static function startlisten(port:uint): uint;
+
+	/**
+	 * accept
+	 */
+    public native static function accept(socket: uint): uint;
+
+	/**
+	 * send
+	 */
+    public native static function send(connfd: uint, data: String): uint;
+
+	/**
+	 * recv
+	 */
+    public native static function recv(connfd: uint): uint;
+
+	/**
+	 * close
+	 */
+    public native static function close(connfd: uint): void;
     };
+
 };

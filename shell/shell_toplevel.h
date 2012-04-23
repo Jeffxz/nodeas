@@ -67,7 +67,7 @@ namespace avmplus {
     class NodeasObject; //nodeas::Nodeas
     class SampleClass; //flash.sampler::Sample$
     class SampleObject; //flash.sampler::Sample
-    class ScriptObject; //avmplus::File
+    class ScriptObject; //avmplus::System
     class StackFrameClass; //flash.sampler::StackFrame$
     class StackFrameObject; //flash.sampler::StackFrame
     class String; //String
@@ -190,31 +190,35 @@ const uint32_t flash_utils_ByteArray_endian_get = 203;
 const uint32_t flash_utils_ByteArray_endian_set = 204;
 const uint32_t nodeas_Nodeas_getVersion = 208;
 const uint32_t nodeas_http_Http_startlisten = 212;
-const uint32_t native_script_function_flash_sampler_isGetterSetter = 215;
-const uint32_t native_script_function_flash_sampler__getInvocationCount = 216;
-const uint32_t native_script_function_flash_sampler_getSampleCount = 220;
-const uint32_t native_script_function_flash_sampler_getSamples = 221;
-const uint32_t native_script_function_flash_sampler_getMemberNames = 222;
-const uint32_t native_script_function_flash_sampler_getSize = 223;
-const uint32_t native_script_function_flash_sampler__setSamplerCallback = 224;
-const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 227;
-const uint32_t native_script_function_flash_sampler_pauseSampling = 228;
-const uint32_t native_script_function_flash_sampler_stopSampling = 229;
-const uint32_t native_script_function_flash_sampler_startSampling = 230;
-const uint32_t native_script_function_flash_sampler_clearSamples = 231;
-const uint32_t flash_sampler_NewObjectSample_object_get = 238;
-const uint32_t flash_sampler_NewObjectSample_size_get = 239;
-const uint32_t flash_trace_Trace_setLevel = 245;
-const uint32_t flash_trace_Trace_getLevel = 246;
-const uint32_t flash_trace_Trace_setListener = 247;
-const uint32_t flash_trace_Trace_getListener = 248;
-const uint32_t flash_utils_Dictionary_private_init = 252;
-const uint32_t avmplus_JObject_create = 259;
-const uint32_t avmplus_JObject_createArray = 260;
-const uint32_t avmplus_JObject_toArray = 261;
-const uint32_t avmplus_JObject_constructorSignature = 262;
-const uint32_t avmplus_JObject_methodSignature = 263;
-const uint32_t avmplus_JObject_fieldSignature = 264;
+const uint32_t nodeas_http_Http_accept = 213;
+const uint32_t nodeas_http_Http_send = 214;
+const uint32_t nodeas_http_Http_recv = 215;
+const uint32_t nodeas_http_Http_close = 216;
+const uint32_t native_script_function_flash_sampler_isGetterSetter = 219;
+const uint32_t native_script_function_flash_sampler__getInvocationCount = 220;
+const uint32_t native_script_function_flash_sampler_getSampleCount = 224;
+const uint32_t native_script_function_flash_sampler_getSamples = 225;
+const uint32_t native_script_function_flash_sampler_getMemberNames = 226;
+const uint32_t native_script_function_flash_sampler_getSize = 227;
+const uint32_t native_script_function_flash_sampler__setSamplerCallback = 228;
+const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 231;
+const uint32_t native_script_function_flash_sampler_pauseSampling = 232;
+const uint32_t native_script_function_flash_sampler_stopSampling = 233;
+const uint32_t native_script_function_flash_sampler_startSampling = 234;
+const uint32_t native_script_function_flash_sampler_clearSamples = 235;
+const uint32_t flash_sampler_NewObjectSample_object_get = 242;
+const uint32_t flash_sampler_NewObjectSample_size_get = 243;
+const uint32_t flash_trace_Trace_setLevel = 249;
+const uint32_t flash_trace_Trace_getLevel = 250;
+const uint32_t flash_trace_Trace_setListener = 251;
+const uint32_t flash_trace_Trace_getListener = 252;
+const uint32_t flash_utils_Dictionary_private_init = 256;
+const uint32_t avmplus_JObject_create = 263;
+const uint32_t avmplus_JObject_createArray = 264;
+const uint32_t avmplus_JObject_toArray = 265;
+const uint32_t avmplus_JObject_constructorSignature = 266;
+const uint32_t avmplus_JObject_methodSignature = 267;
+const uint32_t avmplus_JObject_fieldSignature = 268;
 
 extern AvmBox shell_toplevel_s2a_oos_rest_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_JObject_methodSignature_thunk  shell_toplevel_s2a_oos_rest_thunk
@@ -238,8 +242,16 @@ extern AvmBox shell_toplevel_a2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 #define flash_utils_ByteArray_readFile_thunk  shell_toplevel_a2a_os_thunk
 #define avmplus_Domain_getClass_thunk  shell_toplevel_a2a_os_thunk
 
+extern AvmBox shell_toplevel_u2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
+#define nodeas_http_Http_recv_thunk  shell_toplevel_u2a_ou_thunk
+#define nodeas_http_Http_accept_thunk  shell_toplevel_u2a_ou_thunk
+#define nodeas_http_Http_startlisten_thunk  shell_toplevel_u2a_ou_thunk
+
 extern AvmBox shell_toplevel_func_b2a_oao_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler_isGetterSetter_thunk  shell_toplevel_func_b2a_oao_thunk
+
+extern AvmBox shell_toplevel_u2a_ous_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
+#define nodeas_http_Http_send_thunk  shell_toplevel_u2a_ous_thunk
 
 extern AvmBox shell_toplevel_v2a_oi_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_writeByte_thunk  shell_toplevel_v2a_oi_thunk
@@ -362,6 +374,7 @@ extern AvmBox shell_toplevel_v2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 #define flash_utils_ByteArray_position_set_thunk  shell_toplevel_v2a_ou_thunk
 #define flash_utils_ByteArray_length_set_thunk  shell_toplevel_v2a_ou_thunk
 #define flash_utils_ByteArray_writeUnsignedInt_thunk  shell_toplevel_v2a_ou_thunk
+#define nodeas_http_Http_close_thunk  shell_toplevel_v2a_ou_thunk
 
 extern AvmBox shell_toplevel_b2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_readBoolean_thunk  shell_toplevel_b2a_o_thunk
@@ -373,9 +386,6 @@ extern AvmBox shell_toplevel_v2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 #define flash_utils_ByteArray_writeFile_thunk  shell_toplevel_v2a_os_thunk
 #define avmplus_System_write_thunk  shell_toplevel_v2a_os_thunk
 #define flash_utils_ByteArray_writeUTFBytes_thunk  shell_toplevel_v2a_os_thunk
-
-extern double shell_toplevel_d2d_ouo_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define nodeas_http_Http_startlisten_thunk  shell_toplevel_d2d_ouo_thunk
 
 extern double shell_toplevel_func_d2d_oaou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler__getInvocationCount_thunk  shell_toplevel_func_d2d_oaou_thunk

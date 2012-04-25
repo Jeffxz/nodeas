@@ -1,5 +1,5 @@
 
-package nodeas.http
+package nodeas.socket
 {
     /**
      * The Nodeas class creates objects that hold memory analysis information over distinct durations.
@@ -9,8 +9,8 @@ package nodeas.http
      * @langversion 3.0     
      * @keyword Nodeas      
      */
-    [native(cls="HttpClass", instance="HttpObject", methods="auto", constsetters="true")]
-    public class Http
+    [native(cls="SocketClass", instance="SocketObject", methods="auto", constsetters="true")]
+    public class Socket
     {
     /**
      * start listening

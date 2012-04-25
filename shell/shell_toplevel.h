@@ -57,8 +57,6 @@ namespace avmplus {
     class DeleteObjectSampleObject; //flash.sampler::DeleteObjectSample
     class DictionaryClass; //flash.utils::Dictionary$
     class DictionaryObject; //flash.utils::Dictionary
-    class HttpClass; //nodeas.http::Http$
-    class HttpObject; //nodeas.http::Http
     class JObject; //avmplus::JObject
     class JObjectClass; //avmplus::JObject$
     class NewObjectSampleClass; //flash.sampler::NewObjectSample$
@@ -68,6 +66,8 @@ namespace avmplus {
     class SampleClass; //flash.sampler::Sample$
     class SampleObject; //flash.sampler::Sample
     class ScriptObject; //avmplus::System
+    class SocketClass; //nodeas.socket::Socket$
+    class SocketObject; //nodeas.socket::Socket
     class StackFrameClass; //flash.sampler::StackFrame$
     class StackFrameObject; //flash.sampler::StackFrame
     class String; //String
@@ -115,7 +115,7 @@ const uint32_t abcclass_avmplus_public_interface_665_660_661_662 = 27;
 const uint32_t abcclass_avmplus_Domain = 28;
 const uint32_t abcclass_flash_utils_ByteArray = 29;
 const uint32_t abcclass_nodeas_Nodeas = 30;
-const uint32_t abcclass_nodeas_http_Http = 31;
+const uint32_t abcclass_nodeas_socket_Socket = 31;
 const uint32_t abcclass_flash_sampler_StackFrame = 32;
 const uint32_t abcclass_flash_sampler_Sample = 33;
 const uint32_t abcclass_flash_sampler_NewObjectSample = 34;
@@ -189,11 +189,11 @@ const uint32_t flash_utils_ByteArray_position_set = 202;
 const uint32_t flash_utils_ByteArray_endian_get = 203;
 const uint32_t flash_utils_ByteArray_endian_set = 204;
 const uint32_t nodeas_Nodeas_getVersion = 208;
-const uint32_t nodeas_http_Http_startlisten = 212;
-const uint32_t nodeas_http_Http_accept = 213;
-const uint32_t nodeas_http_Http_send = 214;
-const uint32_t nodeas_http_Http_recv = 215;
-const uint32_t nodeas_http_Http_close = 216;
+const uint32_t nodeas_socket_Socket_startlisten = 212;
+const uint32_t nodeas_socket_Socket_accept = 213;
+const uint32_t nodeas_socket_Socket_send = 214;
+const uint32_t nodeas_socket_Socket_recv = 215;
+const uint32_t nodeas_socket_Socket_close = 216;
 const uint32_t native_script_function_flash_sampler_isGetterSetter = 219;
 const uint32_t native_script_function_flash_sampler__getInvocationCount = 220;
 const uint32_t native_script_function_flash_sampler_getSampleCount = 224;
@@ -243,15 +243,15 @@ extern AvmBox shell_toplevel_a2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 #define avmplus_Domain_getClass_thunk  shell_toplevel_a2a_os_thunk
 
 extern AvmBox shell_toplevel_u2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define nodeas_http_Http_recv_thunk  shell_toplevel_u2a_ou_thunk
-#define nodeas_http_Http_accept_thunk  shell_toplevel_u2a_ou_thunk
-#define nodeas_http_Http_startlisten_thunk  shell_toplevel_u2a_ou_thunk
+#define nodeas_socket_Socket_accept_thunk  shell_toplevel_u2a_ou_thunk
+#define nodeas_socket_Socket_recv_thunk  shell_toplevel_u2a_ou_thunk
+#define nodeas_socket_Socket_startlisten_thunk  shell_toplevel_u2a_ou_thunk
 
 extern AvmBox shell_toplevel_func_b2a_oao_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define native_script_function_flash_sampler_isGetterSetter_thunk  shell_toplevel_func_b2a_oao_thunk
 
 extern AvmBox shell_toplevel_u2a_ous_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
-#define nodeas_http_Http_send_thunk  shell_toplevel_u2a_ous_thunk
+#define nodeas_socket_Socket_send_thunk  shell_toplevel_u2a_ous_thunk
 
 extern AvmBox shell_toplevel_v2a_oi_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_writeByte_thunk  shell_toplevel_v2a_oi_thunk
@@ -374,7 +374,7 @@ extern AvmBox shell_toplevel_v2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 #define flash_utils_ByteArray_position_set_thunk  shell_toplevel_v2a_ou_thunk
 #define flash_utils_ByteArray_length_set_thunk  shell_toplevel_v2a_ou_thunk
 #define flash_utils_ByteArray_writeUnsignedInt_thunk  shell_toplevel_v2a_ou_thunk
-#define nodeas_http_Http_close_thunk  shell_toplevel_v2a_ou_thunk
+#define nodeas_socket_Socket_close_thunk  shell_toplevel_v2a_ou_thunk
 
 extern AvmBox shell_toplevel_b2a_o_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_readBoolean_thunk  shell_toplevel_b2a_o_thunk
@@ -541,32 +541,32 @@ private:
         typedef avmplus::NativeID::NodeasObjectSlots EmptySlotsStruct_NodeasObject
 //-----------------------------------------------------------
 
-// nodeas.http::Http$
+// nodeas.socket::Socket$
 //-----------------------------------------------------------
-class HttpClassSlots
+class SocketClassSlots
 {
     friend class SlotOffsetsAndAsserts;
 public:
 private:
 };
-#define DECLARE_SLOTS_HttpClass \
+#define DECLARE_SLOTS_SocketClass \
     private: \
         friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::HttpClassSlots EmptySlotsStruct_HttpClass
+        typedef avmplus::NativeID::SocketClassSlots EmptySlotsStruct_SocketClass
 //-----------------------------------------------------------
 
-// nodeas.http::Http
+// nodeas.socket::Socket
 //-----------------------------------------------------------
-class HttpObjectSlots
+class SocketObjectSlots
 {
     friend class SlotOffsetsAndAsserts;
 public:
 private:
 };
-#define DECLARE_SLOTS_HttpObject \
+#define DECLARE_SLOTS_SocketObject \
     private: \
         friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::HttpObjectSlots EmptySlotsStruct_HttpObject
+        typedef avmplus::NativeID::SocketObjectSlots EmptySlotsStruct_SocketObject
 //-----------------------------------------------------------
 
 // flash.sampler::StackFrame$

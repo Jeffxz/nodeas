@@ -78,7 +78,7 @@ namespace avmplus
 	class NewObjectSampleObject;
 	class TraceClass;
     class NodeasObject;
-    class HttpObject;
+    class SocketObject;
 }
 
 #include "shell_toplevel.h"
@@ -125,7 +125,7 @@ namespace avmshell
 
 /* nodeas */
 #include "NodeasClass.h"
-#include "HttpClass.h"
+#include "SocketClass.h"
 
 namespace avmshell
 { 

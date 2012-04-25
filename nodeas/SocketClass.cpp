@@ -5,7 +5,7 @@
 // player
 #include "platformbuild.h"
 #include "avmplayer.h"
-#include "HttpClass.h"
+#include "SocketClass.h"
 #endif
 
 #include "nodeassocket.h"
@@ -16,24 +16,24 @@ namespace avmplus
 {
  using namespace MMgc;
 
- /* HttpObject */
- HttpObject::HttpObject(VTable *vtable, ScriptObject *delegate)
+ /* SocketObject */
+ SocketObject::SocketObject(VTable *vtable, ScriptObject *delegate)
   : ScriptObject(vtable, delegate) 
  {}
 
- /* HttpClass */
- HttpClass::HttpClass(VTable *vtable)
+ /* SocketClass */
+ SocketClass::SocketClass(VTable *vtable)
   : ClassClosure(vtable)
  {
   createVanillaPrototype();
  }
 
- ScriptObject *HttpClass::createInstance(VTable *ivtable, ScriptObject* /*delegate*/)
+ ScriptObject *SocketClass::createInstance(VTable *ivtable, ScriptObject* /*delegate*/)
  {
-  return new (core()->gc, ivtable->getExtraSize()) HttpObject(ivtable, prototype);
+  return new (core()->gc, ivtable->getExtraSize()) SocketObject(ivtable, prototype);
  }
 
-uint32 HttpClass::startlisten(uint32 port)
+uint32 SocketClass::startlisten(uint32 port)
  {
      int listenfd;
      struct sockaddr_in local;
@@ -49,7 +49,7 @@ uint32 HttpClass::startlisten(uint32 port)
      return listenfd;
  }
 
-	uint32 HttpClass::accept(uint32 socket)
+	uint32 SocketClass::accept(uint32 socket)
 	{
 		 int connfd, len;
 		 struct sockaddr_in client;
@@ -60,7 +60,7 @@ uint32 HttpClass::startlisten(uint32 port)
 		 return connfd;
 	}
 
-	uint32 HttpClass::send(uint32 connfd, Stringp data)
+	uint32 SocketClass::send(uint32 connfd, Stringp data)
 	{
 		StUTF8String s(data);
 		const char* c = s.c_str();
@@ -68,13 +68,14 @@ uint32 HttpClass::startlisten(uint32 port)
 		return 0;
 	}
 
-	Stringp HttpClass::recv(uint32 connfd)
+	Stringp SocketClass::recv(uint32 connfd)
 	{
 		char buf[1024];
 		int count = 0;
 		count = ::recv(connfd, buf, 1024, 0);
 		/* TODO: if (count < 0) handle error */
 		core()->console << "received: " << count << " bytes\n";
+		core()->console << buf;
 		while (count >= 1024)
 		{
 			core()->console << "received: " << count << "bytes\n";
@@ -85,7 +86,7 @@ uint32 HttpClass::startlisten(uint32 port)
 		return NULL;
 	}
 
-	void HttpClass::close(uint32 connfd)
+	void SocketClass::close(uint32 connfd)
 	{
 		::close(connfd);
 	}

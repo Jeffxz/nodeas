@@ -35,27 +35,27 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-#ifndef __avmplus_HttpClass__
-#define __avmplus_HttpClass__
+#ifndef __avmplus_SocketClass__
+#define __avmplus_SocketClass__
 
 namespace avmplus
 {
- struct Http;
+ struct Socket;
  
- class HttpScript
+ class SocketScript
  {
  private:
   static bool trusted(ScriptObject* self) { return self->toplevel()->sampler_trusted(self); }
-  explicit HttpScript(); // unimplemented, not constructable
+  explicit SocketScript(); // unimplemented, not constructable
   
  public:
   enum { GET = 1, SET = 2 };
  };
 
- class HttpClass : public ClassClosure
+ class SocketClass : public ClassClosure
  {
  public:
-  HttpClass(VTable *vtable);
+  SocketClass(VTable *vtable);
   ScriptObject *createInstance(VTable *ivtable, ScriptObject *delegate);
 
   uint32 startlisten(uint32 port);
@@ -64,16 +64,16 @@ namespace avmplus
   Stringp recv(uint32 connfd);
   void close(uint32 connfd);
 
-  DECLARE_SLOTS_HttpClass;
+  DECLARE_SLOTS_SocketClass;
  };
 
- class HttpObject : public ScriptObject
+ class SocketObject : public ScriptObject
  {
-  friend class HttpScript;
+  friend class SocketScript;
  public:
-  HttpObject(VTable *vtable, ScriptObject *delegate);
+  SocketObject(VTable *vtable, ScriptObject *delegate);
 
-  DECLARE_SLOTS_HttpObject;
+  DECLARE_SLOTS_SocketObject;
  };
 }
-#endif // __avmplus_HttpScript__
+#endif // __avmplus_SocketScript__

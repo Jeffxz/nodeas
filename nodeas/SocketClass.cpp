@@ -57,7 +57,8 @@ uint32 SocketClass::startlisten(uint32 port)
 		 len = sizeof(client);
 		 connfd = ::accept(socket, (struct sockaddr *)&client, (socklen_t *)&len);
 		 core()->console << "accepted connection from " << inet_ntoa(client.sin_addr) << "\n";
-		 return connfd;
+		return connfd;
+
 	}
 
 	uint32 SocketClass::send(uint32 connfd, Stringp data)
@@ -75,15 +76,9 @@ uint32 SocketClass::startlisten(uint32 port)
 		count = ::recv(connfd, buf, 1024, 0);
 		/* TODO: if (count < 0) handle error */
 		core()->console << "received: " << count << " bytes\n";
-		core()->console << buf;
-		while (count >= 1024)
-		{
-			core()->console << "received: " << count << "bytes\n";
-			core()->console << buf;
-			count = ::recv(connfd, buf, 1024, 0);
-		}
 		core()->console << "\n";
-		return NULL;
+		buf[count] = '\0';
+		return core()->newStringLatin1(buf, count);
 	}
 
 	void SocketClass::close(uint32 connfd)

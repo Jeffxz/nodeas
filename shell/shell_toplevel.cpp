@@ -142,7 +142,6 @@ AvmBox shell_toplevel_a2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv
 }
 
 // nodeas_socket_Socket_accept
-// nodeas_socket_Socket_recv
 // nodeas_socket_Socket_startlisten
 AvmBox shell_toplevel_u2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv)
 {
@@ -484,6 +483,7 @@ AvmBox shell_toplevel_s2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv
 }
 
 // flash_utils_ByteArray_readUTFBytes
+// nodeas_socket_Socket_recv
 AvmBox shell_toplevel_s2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv)
 {
     enum {
@@ -491,12 +491,11 @@ AvmBox shell_toplevel_s2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv
         , argoff1 = argoff0 + AvmThunkArgSize_AvmObject
     };
     (void)argc;
-    (void)env;
-    ::avmshell::ByteArrayObject* const obj = (::avmshell::ByteArrayObject*)AvmThunkUnbox_AvmReceiver(AvmObject, argv[argoff0]);
-    AvmString const ret = obj->readUTFBytes(
+    typedef AvmRetType_AvmString (AvmObjectT::*FuncType)(uint32_t);
+    const FuncType func = reinterpret_cast<FuncType>(AVMTHUNK_GET_METHOD_HANDLER(env));
+    return (AvmBox)(*(AvmThunkUnbox_AvmReceiver(AvmObject, argv[argoff0])).*(func))(
         AvmThunkUnbox_uint32_t(argv[argoff1])
     );
-    return (AvmBox) ret;
 }
 
 // avmplus_JObject_create
@@ -1542,7 +1541,7 @@ const uint8_t shell_toplevel_abc_data[13965] = {
   1,  32,   1,   1,   7,   1,  32,   0,   5,   1,  32,   1,   1,   5,   1,  32, 
   0,   0,   1,   0,   0,   0,   1,   0,   0,   0,   1,   0,   0,   5,   1,  32, 
   0,   0,   1,   0,   0,   0,   1,   0,   0,   0,   1,   0,   1,   7,   7,   1, 
- 32,   1,   7,   7,   1,  32,   2,   7,   7,   5,   1,  32,   1,   7,   7,   1, 
+ 32,   1,   7,   7,   1,  32,   2,   7,   7,   5,   1,  32,   1,   5,   7,   1, 
  32,   1,   1,   7,   1,  32,   0,   0,   1,   0,   0,   0,   1,   0,   2,   2, 
  19, 211,   2,   1,  32,   3,  20,  19, 211,   2,   7,   1,  32,   2,  20,  19, 
 211,   2,   1,   0,   2,  20,  19, 211,   2,   1,   0,   2,  20,  19, 211,   2, 

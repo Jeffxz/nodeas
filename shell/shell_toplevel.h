@@ -244,7 +244,6 @@ extern AvmBox shell_toplevel_a2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 
 extern AvmBox shell_toplevel_u2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define nodeas_socket_Socket_accept_thunk  shell_toplevel_u2a_ou_thunk
-#define nodeas_socket_Socket_recv_thunk  shell_toplevel_u2a_ou_thunk
 #define nodeas_socket_Socket_startlisten_thunk  shell_toplevel_u2a_ou_thunk
 
 extern AvmBox shell_toplevel_func_b2a_oao_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
@@ -326,6 +325,7 @@ extern AvmBox shell_toplevel_s2a_os_thunk(AvmMethodEnv env, uint32_t argc, AvmBo
 
 extern AvmBox shell_toplevel_s2a_ou_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define flash_utils_ByteArray_readUTFBytes_thunk  shell_toplevel_s2a_ou_thunk
+#define nodeas_socket_Socket_recv_thunk  shell_toplevel_s2a_ou_thunk
 
 extern AvmBox shell_toplevel_a2a_os_rest_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_JObject_create_thunk  shell_toplevel_a2a_os_rest_thunk

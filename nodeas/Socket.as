@@ -30,7 +30,7 @@ package nodeas.socket
 	/**
 	 * recv
 	 */
-    public native static function recv(connfd: uint): uint;
+    public native static function recv(connfd: uint): String;
 
 	/**
 	 * close

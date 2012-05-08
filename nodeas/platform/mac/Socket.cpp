@@ -1,3 +1,4 @@
+/* vim: set et ts=4 sw=4 : */
 #include "NPI.h"
 
 int npi_socket(int in_domain, int in_type, int in_protocol)

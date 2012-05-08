@@ -1,3 +1,4 @@
+/* vim: set et ts=4 sw=4 : */
 #ifndef NODEAS_SOCKET_H
 #define NODEAS_SOCKET_H 1
 

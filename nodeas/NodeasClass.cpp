@@ -1,3 +1,4 @@
+/* vim: set et ts=4 sw=4 : */
 
 #ifdef AVMSHELL_BUILD
 #include "avmshell.h"

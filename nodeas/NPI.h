@@ -1,3 +1,4 @@
+/* vim: set et ts=4 sw=4 : */
 #ifndef NPI_H
 #define NPI_H
 #include "nodeassocket.h"

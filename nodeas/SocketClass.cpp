@@ -8,7 +8,7 @@
 #include "SocketClass.h"
 #endif
 
-#include "nodeassocket.h"
+#include "NPI.h"
 
 using namespace MMgc;
 
@@ -36,15 +36,15 @@ namespace avmplus
 uint32 SocketClass::startlisten(uint32 port)
  {
      int listenfd;
-     struct sockaddr_in local;
-     listenfd = socket(AF_INET, SOCK_STREAM, 0);
+     struct sockaddr_in local; /* FIXME: can not use in win32 */
+     listenfd = npi_socket(AF_INET, SOCK_STREAM, 0);
 
      memset((char *)&local, 0, sizeof(local));
      local.sin_family = AF_INET;
      local.sin_addr.s_addr = htonl(INADDR_ANY);
      local.sin_port = htons(port);
-     bind(listenfd, (struct sockaddr *)&local, sizeof(local));
-     listen(listenfd, 5);
+     npi_bind(listenfd, (struct sockaddr *)&local, sizeof(local));
+     npi_listen(listenfd, 5);
 	 core()->console << "started listening port " << port << "\n";
      return listenfd;
  }
@@ -52,10 +52,10 @@ uint32 SocketClass::startlisten(uint32 port)
 	uint32 SocketClass::accept(uint32 socket)
 	{
 		 int connfd, len;
-		 struct sockaddr_in client;
+		 struct sockaddr_in client; /* FIXME: can not use in win32 */
 
 		 len = sizeof(client);
-		 connfd = ::accept(socket, (struct sockaddr *)&client, (socklen_t *)&len);
+		 connfd = npi_accept(socket, (struct sockaddr *)&client, (socklen_t *)&len);
 		 core()->console << "accepted connection from " << inet_ntoa(client.sin_addr) << "\n";
 		return connfd;
 
@@ -65,7 +65,7 @@ uint32 SocketClass::startlisten(uint32 port)
 	{
 		StUTF8String s(data);
 		const char* c = s.c_str();
-		::send(connfd, c, (int)strlen(c), 0);
+		npi_send(connfd, c, (int)strlen(c), 0);
 		return 0;
 	}
 
@@ -73,7 +73,7 @@ uint32 SocketClass::startlisten(uint32 port)
 	{
 		char buf[1024];
 		int count = 0;
-		count = ::recv(connfd, buf, 1024, 0);
+		count = npi_recv(connfd, buf, 1024, 0);
 		/* TODO: if (count < 0) handle error */
 		core()->console << "received: " << count << " bytes\n";
 		core()->console << "\n";
@@ -83,6 +83,6 @@ uint32 SocketClass::startlisten(uint32 port)
 
 	void SocketClass::close(uint32 connfd)
 	{
-		::close(connfd);
+		npi_close(connfd);
 	}
 }

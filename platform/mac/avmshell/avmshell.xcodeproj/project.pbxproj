@@ -353,6 +353,8 @@
 		3FFDEC6E0F69A54F00E510AB /* GCAllocObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDEC6B0F69A54F00E510AB /* GCAllocObject.cpp */; };
 		CE9C5FB1154842EA00A891A6 /* SocketClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE9C5FAF154842EA00A891A6 /* SocketClass.cpp */; };
 		CE9C5FB2154842EA00A891A6 /* SocketClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE9C5FAF154842EA00A891A6 /* SocketClass.cpp */; };
+		CED00EDD15593A4600FE9FCB /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED00EDC15593A4600FE9FCB /* Socket.cpp */; };
+		CED00EDE15593A4600FE9FCB /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED00EDC15593A4600FE9FCB /* Socket.cpp */; };
 		CEF7896D153C632B002F8155 /* NodeasClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEF7896B153C632B002F8155 /* NodeasClass.cpp */; };
 		CEF7896E153C632B002F8155 /* NodeasClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEF7896B153C632B002F8155 /* NodeasClass.cpp */; };
 		D5AD1DAD0F979A4A002B2FE2 /* SpyUtilsPosix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5AD1DAC0F979A4A002B2FE2 /* SpyUtilsPosix.cpp */; };
@@ -848,6 +850,8 @@
 		CE402398154291E700B824B9 /* nodeassocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nodeassocket.h; path = ../../../nodeas/nodeassocket.h; sourceTree = SOURCE_ROOT; };
 		CE9C5FAF154842EA00A891A6 /* SocketClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SocketClass.cpp; path = ../../../nodeas/SocketClass.cpp; sourceTree = SOURCE_ROOT; };
 		CE9C5FB0154842EA00A891A6 /* SocketClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketClass.h; path = ../../../nodeas/SocketClass.h; sourceTree = SOURCE_ROOT; };
+		CED00EDC15593A4600FE9FCB /* Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Socket.cpp; path = ../../../nodeas/platform/mac/Socket.cpp; sourceTree = SOURCE_ROOT; };
+		CED00EFC155945D500FE9FCB /* NPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPI.h; path = ../../../nodeas/NPI.h; sourceTree = SOURCE_ROOT; };
 		CEF7896B153C632B002F8155 /* NodeasClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NodeasClass.cpp; path = ../../../nodeas/NodeasClass.cpp; sourceTree = SOURCE_ROOT; };
 		CEF7896C153C632B002F8155 /* NodeasClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeasClass.h; path = ../../../nodeas/NodeasClass.h; sourceTree = SOURCE_ROOT; };
 		D5AD1DAC0F979A4A002B2FE2 /* SpyUtilsPosix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpyUtilsPosix.cpp; path = ../../../VMPI/SpyUtilsPosix.cpp; sourceTree = SOURCE_ROOT; };
@@ -1566,6 +1570,8 @@
 		CEF7896A153C630E002F8155 /* nodeas */ = {
 			isa = PBXGroup;
 			children = (
+				CED00EFC155945D500FE9FCB /* NPI.h */,
+				CED00EDC15593A4600FE9FCB /* Socket.cpp */,
 				CE9C5FAF154842EA00A891A6 /* SocketClass.cpp */,
 				CE9C5FB0154842EA00A891A6 /* SocketClass.h */,
 				CE402398154291E700B824B9 /* nodeassocket.h */,
@@ -1832,6 +1838,7 @@
 				E8B532071069A1DE00ED299A /* instr.cpp in Sources */,
 				CEF7896E153C632B002F8155 /* NodeasClass.cpp in Sources */,
 				CE9C5FB2154842EA00A891A6 /* SocketClass.cpp in Sources */,
+				CED00EDE15593A4600FE9FCB /* Socket.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2014,6 +2021,7 @@
 				E8B532061069A1DE00ED299A /* instr.cpp in Sources */,
 				CEF7896D153C632B002F8155 /* NodeasClass.cpp in Sources */,
 				CE9C5FB1154842EA00A891A6 /* SocketClass.cpp in Sources */,
+				CED00EDD15593A4600FE9FCB /* Socket.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

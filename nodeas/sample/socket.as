@@ -1,10 +1,7 @@
 import nodeas.*;
 import nodeas.socket.*;
 
-trace("hello, world!");
-var nodeas: Nodeas = new Nodeas();
-trace(nodeas);
-trace(Nodeas.getVersion());
+trace("Start!");
 var socket: uint = Socket.startlisten(8080);
 var connfd: uint;
 var test_html1:String = "HTTP/1.0 200 OK\r\nContent-Length: 20\r\nContent-Type: text/html\r\n\r\n<div style=\"color:#f00;\">This is in html1</div>\r\n";

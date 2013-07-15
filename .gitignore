@@ -6,3 +6,4 @@ platform/mac/avmshell/avmshell.xcodeproj/
 platform/mac/avmshell/build/avmshell.build/
 *.swp
 *.swo
+tags

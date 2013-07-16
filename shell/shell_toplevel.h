@@ -65,7 +65,7 @@ namespace avmplus {
     class NodeasObject; //nodeas::Nodeas
     class SampleClass; //flash.sampler::Sample$
     class SampleObject; //flash.sampler::Sample
-    class ScriptObject; //avmplus::System
+    class ScriptObject; //flash.trace::Trace
     class SocketClass; //nodeas.socket::Socket$
     class SocketObject; //nodeas.socket::Socket
     class StackFrameClass; //flash.sampler::StackFrame$
@@ -114,16 +114,17 @@ const uint32_t abcclass_avmplus_public_interface_664_662_666 = 26;
 const uint32_t abcclass_avmplus_public_interface_665_660_661_662 = 27;
 const uint32_t abcclass_avmplus_Domain = 28;
 const uint32_t abcclass_flash_utils_ByteArray = 29;
-const uint32_t abcclass_nodeas_Nodeas = 30;
-const uint32_t abcclass_nodeas_socket_Socket = 31;
-const uint32_t abcclass_flash_sampler_StackFrame = 32;
-const uint32_t abcclass_flash_sampler_Sample = 33;
-const uint32_t abcclass_flash_sampler_NewObjectSample = 34;
-const uint32_t abcclass_flash_sampler_DeleteObjectSample = 35;
-const uint32_t abcclass_flash_trace_Trace = 36;
-const uint32_t abcclass_flash_utils_Dictionary = 37;
-const uint32_t abcclass_flash_utils_Endian = 38;
-const uint32_t abcclass_avmplus_JObject = 39;
+const uint32_t abcclass_flash_sampler_StackFrame = 30;
+const uint32_t abcclass_flash_sampler_Sample = 31;
+const uint32_t abcclass_flash_sampler_NewObjectSample = 32;
+const uint32_t abcclass_flash_sampler_DeleteObjectSample = 33;
+const uint32_t abcclass_flash_trace_Trace = 34;
+const uint32_t abcclass_flash_utils_Dictionary = 35;
+const uint32_t abcclass_nodeas_Nodeas = 36;
+const uint32_t abcclass_nodeas_socket_Socket = 37;
+const uint32_t abcclass_nodeas_http_HttpServer = 38;
+const uint32_t abcclass_flash_utils_Endian = 39;
+const uint32_t abcclass_avmplus_JObject = 40;
 
 /* methods */
 const uint32_t avmplus_MI_plus = 46;
@@ -188,37 +189,37 @@ const uint32_t flash_utils_ByteArray_position_get = 201;
 const uint32_t flash_utils_ByteArray_position_set = 202;
 const uint32_t flash_utils_ByteArray_endian_get = 203;
 const uint32_t flash_utils_ByteArray_endian_set = 204;
-const uint32_t nodeas_Nodeas_getVersion = 208;
-const uint32_t nodeas_socket_Socket_startlisten = 212;
-const uint32_t nodeas_socket_Socket_accept = 213;
-const uint32_t nodeas_socket_Socket_send = 214;
-const uint32_t nodeas_socket_Socket_recv = 215;
-const uint32_t nodeas_socket_Socket_close = 216;
-const uint32_t native_script_function_flash_sampler_isGetterSetter = 219;
-const uint32_t native_script_function_flash_sampler__getInvocationCount = 220;
-const uint32_t native_script_function_flash_sampler_getSampleCount = 224;
-const uint32_t native_script_function_flash_sampler_getSamples = 225;
-const uint32_t native_script_function_flash_sampler_getMemberNames = 226;
-const uint32_t native_script_function_flash_sampler_getSize = 227;
-const uint32_t native_script_function_flash_sampler__setSamplerCallback = 228;
-const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 231;
-const uint32_t native_script_function_flash_sampler_pauseSampling = 232;
-const uint32_t native_script_function_flash_sampler_stopSampling = 233;
-const uint32_t native_script_function_flash_sampler_startSampling = 234;
-const uint32_t native_script_function_flash_sampler_clearSamples = 235;
-const uint32_t flash_sampler_NewObjectSample_object_get = 242;
-const uint32_t flash_sampler_NewObjectSample_size_get = 243;
-const uint32_t flash_trace_Trace_setLevel = 249;
-const uint32_t flash_trace_Trace_getLevel = 250;
-const uint32_t flash_trace_Trace_setListener = 251;
-const uint32_t flash_trace_Trace_getListener = 252;
-const uint32_t flash_utils_Dictionary_private_init = 256;
-const uint32_t avmplus_JObject_create = 263;
-const uint32_t avmplus_JObject_createArray = 264;
-const uint32_t avmplus_JObject_toArray = 265;
-const uint32_t avmplus_JObject_constructorSignature = 266;
-const uint32_t avmplus_JObject_methodSignature = 267;
-const uint32_t avmplus_JObject_fieldSignature = 268;
+const uint32_t native_script_function_flash_sampler_isGetterSetter = 207;
+const uint32_t native_script_function_flash_sampler__getInvocationCount = 208;
+const uint32_t native_script_function_flash_sampler_getSampleCount = 212;
+const uint32_t native_script_function_flash_sampler_getSamples = 213;
+const uint32_t native_script_function_flash_sampler_getMemberNames = 214;
+const uint32_t native_script_function_flash_sampler_getSize = 215;
+const uint32_t native_script_function_flash_sampler__setSamplerCallback = 216;
+const uint32_t native_script_function_flash_sampler_sampleInternalAllocs = 219;
+const uint32_t native_script_function_flash_sampler_pauseSampling = 220;
+const uint32_t native_script_function_flash_sampler_stopSampling = 221;
+const uint32_t native_script_function_flash_sampler_startSampling = 222;
+const uint32_t native_script_function_flash_sampler_clearSamples = 223;
+const uint32_t flash_sampler_NewObjectSample_object_get = 230;
+const uint32_t flash_sampler_NewObjectSample_size_get = 231;
+const uint32_t flash_trace_Trace_setLevel = 237;
+const uint32_t flash_trace_Trace_getLevel = 238;
+const uint32_t flash_trace_Trace_setListener = 239;
+const uint32_t flash_trace_Trace_getListener = 240;
+const uint32_t flash_utils_Dictionary_private_init = 244;
+const uint32_t nodeas_Nodeas_getVersion = 248;
+const uint32_t nodeas_socket_Socket_startlisten = 252;
+const uint32_t nodeas_socket_Socket_accept = 253;
+const uint32_t nodeas_socket_Socket_send = 254;
+const uint32_t nodeas_socket_Socket_recv = 255;
+const uint32_t nodeas_socket_Socket_close = 256;
+const uint32_t avmplus_JObject_create = 268;
+const uint32_t avmplus_JObject_createArray = 269;
+const uint32_t avmplus_JObject_toArray = 270;
+const uint32_t avmplus_JObject_constructorSignature = 271;
+const uint32_t avmplus_JObject_methodSignature = 272;
+const uint32_t avmplus_JObject_fieldSignature = 273;
 
 extern AvmBox shell_toplevel_s2a_oos_rest_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_JObject_methodSignature_thunk  shell_toplevel_s2a_oos_rest_thunk
@@ -513,62 +514,6 @@ private:
         typedef avmplus::NativeID::_avmshell_ByteArrayObjectSlots EmptySlotsStruct_ByteArrayObject
 //-----------------------------------------------------------
 
-// nodeas::Nodeas$
-//-----------------------------------------------------------
-class NodeasClassSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-private:
-};
-#define DECLARE_SLOTS_NodeasClass \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::NodeasClassSlots EmptySlotsStruct_NodeasClass
-//-----------------------------------------------------------
-
-// nodeas::Nodeas
-//-----------------------------------------------------------
-class NodeasObjectSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-private:
-};
-#define DECLARE_SLOTS_NodeasObject \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::NodeasObjectSlots EmptySlotsStruct_NodeasObject
-//-----------------------------------------------------------
-
-// nodeas.socket::Socket$
-//-----------------------------------------------------------
-class SocketClassSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-private:
-};
-#define DECLARE_SLOTS_SocketClass \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::SocketClassSlots EmptySlotsStruct_SocketClass
-//-----------------------------------------------------------
-
-// nodeas.socket::Socket
-//-----------------------------------------------------------
-class SocketObjectSlots
-{
-    friend class SlotOffsetsAndAsserts;
-public:
-private:
-};
-#define DECLARE_SLOTS_SocketObject \
-    private: \
-        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
-        typedef avmplus::NativeID::SocketObjectSlots EmptySlotsStruct_SocketObject
-//-----------------------------------------------------------
-
 // flash.sampler::StackFrame$
 //-----------------------------------------------------------
 class StackFrameClassSlots
@@ -824,6 +769,62 @@ private:
     private: \
         friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
         typedef avmplus::NativeID::DictionaryObjectSlots EmptySlotsStruct_DictionaryObject
+//-----------------------------------------------------------
+
+// nodeas::Nodeas$
+//-----------------------------------------------------------
+class NodeasClassSlots
+{
+    friend class SlotOffsetsAndAsserts;
+public:
+private:
+};
+#define DECLARE_SLOTS_NodeasClass \
+    private: \
+        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
+        typedef avmplus::NativeID::NodeasClassSlots EmptySlotsStruct_NodeasClass
+//-----------------------------------------------------------
+
+// nodeas::Nodeas
+//-----------------------------------------------------------
+class NodeasObjectSlots
+{
+    friend class SlotOffsetsAndAsserts;
+public:
+private:
+};
+#define DECLARE_SLOTS_NodeasObject \
+    private: \
+        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
+        typedef avmplus::NativeID::NodeasObjectSlots EmptySlotsStruct_NodeasObject
+//-----------------------------------------------------------
+
+// nodeas.socket::Socket$
+//-----------------------------------------------------------
+class SocketClassSlots
+{
+    friend class SlotOffsetsAndAsserts;
+public:
+private:
+};
+#define DECLARE_SLOTS_SocketClass \
+    private: \
+        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
+        typedef avmplus::NativeID::SocketClassSlots EmptySlotsStruct_SocketClass
+//-----------------------------------------------------------
+
+// nodeas.socket::Socket
+//-----------------------------------------------------------
+class SocketObjectSlots
+{
+    friend class SlotOffsetsAndAsserts;
+public:
+private:
+};
+#define DECLARE_SLOTS_SocketObject \
+    private: \
+        friend class avmplus::NativeID::SlotOffsetsAndAsserts; \
+        typedef avmplus::NativeID::SocketObjectSlots EmptySlotsStruct_SocketObject
 //-----------------------------------------------------------
 
 // avmplus::JObject$

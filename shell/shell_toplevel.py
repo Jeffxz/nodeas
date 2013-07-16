@@ -56,13 +56,15 @@ def rm(file):
 
 javacmd = "java -ea -DAS3 -DAVMPLUS -classpath "+classpath
 asc = javacmd+" macromedia.asc.embedding.ScriptCompiler "
+nodeas_files = " ../nodeas/Nodeas.as ../nodeas/Socket.as ../nodeas/HttpServer.as"
+# nodeas_files = " ../nodeas/Nodeas.as ../nodeas/Socket.as"
 
 print("ASC="+classpath)
 print("Building shell_toplevel...")
 
 # compile builtins
 #os.system(asc+" -abcfuture -import ../core/builtin.abc -builtin -out shell_toplevel shell_toplevel.as Domain.as ByteArray.as ../extensions/Sampler.as ../extensions/Trace.as ../extensions/Dictionary.as Endian.as Java.as")
-os.system(asc+" -abcfuture -import ../core/builtin.abc -builtin -apiversioning -out shell_toplevel shell_toplevel.as Domain.as ByteArray.as ../nodeas/Nodeas.as ../nodeas/Socket.as ../extensions/Sampler.as ../extensions/Trace.as ../extensions/Dictionary.as Endian.as Java.as")
+os.system(asc+" -abcfuture -import ../core/builtin.abc -builtin -apiversioning -out shell_toplevel shell_toplevel.as Domain.as ByteArray.as ../extensions/Sampler.as ../extensions/Trace.as ../extensions/Dictionary.as" + nodeas_files + " Endian.as Java.as")
 
 print("Generating native thunks...")
 os.system("python ../utils/nativegen.py ../core/builtin.abc shell_toplevel.abc")

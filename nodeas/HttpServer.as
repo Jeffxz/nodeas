@@ -13,30 +13,32 @@ package nodeas.http
      */
     public class HttpServer
     {
-        private var socket: uint;
-        private var connfd: uint;
+        private var _socket: uint;
+        private var _connfd: uint;
+        private var _response: HttpResponse;
+        private var _request: HttpRequest;
 
-        public function HttpServer(port:uint)
+        public function HttpServer(in_port:uint)
         {
-            trace("HttpServer is starting at port:" + port);
-            socket = Socket.startlisten(port);
+            trace("HttpServer is starting at port:" + in_port);
+            _socket = Socket.startlisten(in_port);
+            _response = new HttpResponse;
+            _request = new HttpRequest;
         }
 
-        public function start(fn:Function):void
+        public function start(in_fn:Function):void
         {
             for (;;) {
-                connfd = Socket.accept(socket);
-                var request:String = Socket.recv(connfd);
-                trace(request);
-                var path:String = request.substring(4, request.indexOf("HTTP/") - 1);
-                trace("[debug]" + path);
-                fn.call(this, path, connfd);
+                _connfd = Socket.accept(_socket);
+                _response.setConnectHandle(_connfd);
+                _request.setRequest(Socket.recv(_connfd));
+                in_fn.call(this, _request, _response);
             }
         }
 
         public function stop():void
         {
-            Socket.close(socket);
+            Socket.close(_socket);
         }
     }
 

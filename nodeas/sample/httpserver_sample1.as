@@ -1,20 +1,23 @@
 import nodeas.*;
 import nodeas.socket.*;
 import nodeas.http.HttpServer;
+import nodeas.http.HttpResponse;
+import nodeas.http.HttpRequest;
 
 trace("Start!");
-var test_html1:String = "HTTP/1.0 200 OK\r\nContent-Length: 20\r\nContent-Type: text/html\r\n\r\n<div style=\"color:#f00;\">This is in html1</div>\r\n";
-var test_html2:String = "HTTP/1.0 200 OK\r\nContent-Length: 20\r\nContent-Type: text/html\r\n\r\n<div style=\"color:#f00;\">This is in html2</div>\r\n";
-var html_404: String = "HTTP/1.0 404 \r\nContent-Length: 20\r\nContent-Type: text/html\r\n\r\n<div style=\"color:#f00;\">Not found</div>\r\n";
+var test_html1:String = "<div style=\"color:#f00;\">This is in html1</div>\r\n";
+var test_html2:String = "<div style=\"color:#f00;\">This is in html2</div>\r\n";
+var html_404: String = "<div style=\"color:#f00;\">Not found</div>\r\n";
 
-function send_socket(in_path:String, in_connfd:uint)
+function send_socket(in_request:HttpRequest, in_response:HttpResponse)
 {
-    if(in_path == "/") {
-        Socket.send(in_connfd, test_html1);
-    } else if (in_path == "/test.html") {
-        Socket.send(in_connfd, test_html2);
+    var path = in_request.getPath();
+    if(path == "/") {
+        in_response.send(test_html1);
+    } else if (path == "/test.html") {
+        in_response.send(test_html2);
     } else {
-        Socket.send(in_connfd, html_404);
+        in_response.send(html_404, 404);
     }
 };
 
@@ -26,3 +29,4 @@ try {
     trace("catch");
     trace(error.toString());
 }
+

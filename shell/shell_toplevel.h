@@ -65,7 +65,7 @@ namespace avmplus {
     class NodeasObject; //nodeas::Nodeas
     class SampleClass; //flash.sampler::Sample$
     class SampleObject; //flash.sampler::Sample
-    class ScriptObject; //flash.trace::Trace
+    class ScriptObject; //avmplus::File
     class SocketClass; //nodeas.socket::Socket$
     class SocketObject; //nodeas.socket::Socket
     class StackFrameClass; //flash.sampler::StackFrame$
@@ -123,8 +123,10 @@ const uint32_t abcclass_flash_utils_Dictionary = 35;
 const uint32_t abcclass_nodeas_Nodeas = 36;
 const uint32_t abcclass_nodeas_socket_Socket = 37;
 const uint32_t abcclass_nodeas_http_HttpServer = 38;
-const uint32_t abcclass_flash_utils_Endian = 39;
-const uint32_t abcclass_avmplus_JObject = 40;
+const uint32_t abcclass_nodeas_http_HttpResponse = 39;
+const uint32_t abcclass_nodeas_http_HttpRequest = 40;
+const uint32_t abcclass_flash_utils_Endian = 41;
+const uint32_t abcclass_avmplus_JObject = 42;
 
 /* methods */
 const uint32_t avmplus_MI_plus = 46;
@@ -214,12 +216,12 @@ const uint32_t nodeas_socket_Socket_accept = 253;
 const uint32_t nodeas_socket_Socket_send = 254;
 const uint32_t nodeas_socket_Socket_recv = 255;
 const uint32_t nodeas_socket_Socket_close = 256;
-const uint32_t avmplus_JObject_create = 268;
-const uint32_t avmplus_JObject_createArray = 269;
-const uint32_t avmplus_JObject_toArray = 270;
-const uint32_t avmplus_JObject_constructorSignature = 271;
-const uint32_t avmplus_JObject_methodSignature = 272;
-const uint32_t avmplus_JObject_fieldSignature = 273;
+const uint32_t avmplus_JObject_create = 279;
+const uint32_t avmplus_JObject_createArray = 280;
+const uint32_t avmplus_JObject_toArray = 281;
+const uint32_t avmplus_JObject_constructorSignature = 282;
+const uint32_t avmplus_JObject_methodSignature = 283;
+const uint32_t avmplus_JObject_fieldSignature = 284;
 
 extern AvmBox shell_toplevel_s2a_oos_rest_thunk(AvmMethodEnv env, uint32_t argc, AvmBox* argv);
 #define avmplus_JObject_methodSignature_thunk  shell_toplevel_s2a_oos_rest_thunk

@@ -57,6 +57,8 @@ def rm(file):
 javacmd = "java -ea -DAS3 -DAVMPLUS -classpath "+classpath
 asc = javacmd+" macromedia.asc.embedding.ScriptCompiler "
 nodeas_files = " ../nodeas/Nodeas.as ../nodeas/Socket.as ../nodeas/HttpServer.as"
+nodeas_files += " ../nodeas/HttpResponse.as ../nodeas/HttpRequest.as"
+print nodeas_files
 # nodeas_files = " ../nodeas/Nodeas.as ../nodeas/Socket.as"
 
 print("ASC="+classpath)
